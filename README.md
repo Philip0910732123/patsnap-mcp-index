@@ -1,4 +1,4 @@
-# 智慧芽 MCP 服务索引（非官方社区维护）
+﻿# 智慧芽 MCP 服务索引（非官方社区维护）
 
 > 本仓库为社区维护的非官方智慧芽 MCP 服务索引，旨在帮助开发者快速了解和配置智慧芽 MCP 生态。MCP 服务清单和工具描述来自公开可访问的开发者环境。如需获取 API Key，请访问 [open.zhihuiya.com](https://open.zhihuiya.com)。
 
@@ -14,13 +14,15 @@
 
 智慧芽开放平台提供了 59 个 MCP（Model Context Protocol）服务，覆盖专利检索、法律状态、全景分析、FTO、OCR、化学结构、生物序列、临床试验、药物情报、文献检索、企业情报等数十个领域。但这些服务分散在官方市场页面中，缺乏一份统一的导航索引。
 
-本仓库将这 59 个 MCP 服务整理为：
+本仓库将这 59 个 MCP 服务和 372 条 API 接口整理为：
 
 - **[服务总览表](docs/mcp-service-catalog.md)** — 按领域分组的 59 个 MCP 服务一览
 - **[工具矩阵](docs/mcp-tool-matrix.md)** — 每个 MCP 服务下的全部工具清单及输入输出摘要
 - **[配置指南](docs/mcp-setup-guide.md)** — 从获取 Key 到连接客户端的完整步骤
 - **[已知约束](docs/mcp-known-constraints.md)** — 实战踩坑记录和已知限制
 - **[调用示例](docs/mcp-usage-examples.md)** — 典型场景的 MCP 调用流程
+- **[API 索引](docs/zhihuiya-api-index.md)** — 智慧芽开放平台 372 条 API 接口索引
+- **[MCP→API 映射](docs/mcp-api-mapping.md)** — MCP 工具与底层 API 接口的对应关系
 
 ## 快速开始
 
@@ -63,6 +65,9 @@ curl https://connect.zhihuiya.com/<service-id>/mcp \
 | [docs/mcp-tool-matrix.md](docs/mcp-tool-matrix.md) | 每个 MCP 服务的全部工具清单 |
 | [docs/mcp-setup-guide.md](docs/mcp-setup-guide.md) | 获取 Key → 连接客户端 → 验证连通性 |
 | [docs/mcp-known-constraints.md](docs/mcp-known-constraints.md) | 已知限制、踩坑记录、降级方案 |
+
+| [docs/zhihuiya-api-index.md](docs/zhihuiya-api-index.md) | 智慧芽开放平台 372 条 API 接口索引 |
+| [docs/mcp-api-mapping.md](docs/mcp-api-mapping.md) | MCP 工具 → API 接口映射表 |
 | [docs/mcp-usage-examples.md](docs/mcp-usage-examples.md) | 专利检索 / FTO / 全景分析 / OCR 调用示例 |
 
 ## 相关项目
