@@ -1,6 +1,6 @@
 # 智慧芽 MCP 工具矩阵
 
-> 50 个 MCP 服务下的全部工具清单，按领域分组。每个工具列出名称和简要说明。
+> 59 个 MCP 服务下的全部工具清单，按领域分组。每个工具列出名称和简要说明。
 
 ---
 
@@ -40,7 +40,16 @@
 | `get_task_status` | 获取任务状态 |
 | `get_stage_result` | 获取各阶段结果 |
 
-### 3. intangible-assets（5 工具）
+### 3. document-processing（4 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `documents_parsing` | 文档解析（Layout/OCR） |
+| `translation_text` | 文本流式翻译（18 种语言互译） |
+| `translation_docx` | DOCX 文档翻译 |
+| `translation_docx_status` | DOCX 翻译状态查询 |
+
+### 4. intangible-assets（5 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -50,7 +59,7 @@
 | `ic_design` | 集成电路布图设计 |
 | `potential_buyer` | 潜在买家推荐 |
 
-### 4. ip-courses（3 工具）
+### 5. ip-courses（3 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -58,7 +67,7 @@
 | `course_details` | 课程详情 |
 | `course_courseware` | 课件下载 |
 
-### 5. landscape-projects（6 工具）
+### 6. landscape-projects（6 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -69,7 +78,7 @@
 | `landscape_facet_detail` | 分面详情 |
 | `landscape_patents` | 专利列表 |
 
-### 6. novelty-search-lite（13 工具）
+### 7. novelty-search-lite（13 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -87,26 +96,47 @@
 | `novelty_summary` | 查新摘要 |
 | `novelty_lite_report_generate` | 报告生成 |
 
-### 7. patent-analysis（2 工具）
+### 8. patent-analysis（2 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `aggregate_patents` | 专利聚合统计 |
 | `mine_patent_text` | 专利文本挖掘 |
 
-### 8. patent-dispute（21 工具）
+### 9. patent-briefing（12 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `search_patents` | 专利检索 |
 | `bibliography` | 著录项目 |
-| `claims` / `claim_translated` | 权利要求 / 中文翻译 |
-| `description` / `desc_translated` | 说明书 / 中文翻译 |
-| `abstract_translated` / `abstract_image` | 摘要翻译 / 附图 |
+| `claims` | 权利要求 |
+| `claim_translated` | 权利要求翻译 |
+| `description` | 说明书 |
+| `description_translated` | 说明书翻译 |
+| `abstract_translated` | 摘要翻译 |
+| `abstract_image` | 摘要附图 |
+| `family` | 同族信息 |
+| `legal_status` | 法律状态 |
+| `intelligent_image` | 智能附图 |
+| `tech_summary` | 技术三要素摘要 |
+
+### 10. patent-dispute（21 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `search_patents` | 专利检索 |
+| `bibliography` | 著录项目 |
+| `claims` | 权利要求 |
+| `claim_translated` | 权利要求翻译 |
+| `description` | 说明书 |
+| `desc_translated` | 说明书翻译 |
+| `abstract_translated` | 摘要翻译 |
+| `abstract_image` | 摘要附图 |
 | `fulltext_image` | 全文附图 |
 | `family` | 同族专利 |
 | `forward_citation` | 前向引证 |
-| `legal_data` / `legal_status` | 法律数据 / 法律状态 |
+| `legal_data` | 法律数据 |
+| `legal_status` | 法律状态 |
 | `license_data` | 许可数据 |
 | `transfer_data` | 转移数据 |
 | `pledge_data` | 质押数据 |
@@ -116,7 +146,7 @@
 | `pdf` | PDF 下载 |
 | `valuation_get_patent_valuation` | 专利价值评估 |
 
-### 9. patent-landscape（22 工具）
+### 11. patent-landscape（24 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -124,7 +154,9 @@
 | `search_patents_facet` | 分面检索 |
 | `search_patents_statistics` | 检索统计 |
 | `search_patents_with_detail` | 带详情检索 |
-| `detail` / `detail_aggregation` / `detail_text` | 专利详情 / 聚合 / 文本 |
+| `detail` | 专利详情 |
+| `detail_aggregation` | 聚合详情 |
+| `detail_text` | 详情文本 |
 | `trend` | 申请趋势 |
 | `technology_constitute` | 技术构成 |
 | `applicant_rank` | 申请人排名 |
@@ -137,11 +169,13 @@
 | `map_3d` | 3D 地图 |
 | `famn_rank` | 同族排名 |
 | `refered_rank` | 被引排名 |
-| `rec_office` / `get_rec_office_year` | 受理局 / 年度 |
-| `info` / `list` | 专利信息 / 列表 |
+| `rec_office` | 受理局 |
+| `get_rec_office_year` | 受理局年度 |
+| `info` | 专利信息 |
+| `list` | 专利列表 |
 | `pdf` | PDF 下载 |
 
-### 10. patent-mining（8 工具）
+### 12. patent-mining（9 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -150,11 +184,12 @@
 | `application_domain` | 应用领域 |
 | `classification_description` | 分类号说明 |
 | `seic_classification` | 战略性新兴产业分类 |
-| `material_ontology` / `material_substance` | 材料本体 / 物质 |
+| `material_ontology` | 材料本体 |
+| `material_substance` | 材料物质 |
 | `enhanced_data` | 增强数据 |
 | `intelligent_attached_image` | 智能附图 |
 
-### 11. patent-status（13 工具）
+### 13. patent-status（12 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -171,7 +206,7 @@
 | `overseas_patent_documents` | 海外专利审查文件 |
 | `unified_patent_court_status` | UPC 统一专利法院状态 |
 
-### 12. patent-value（10 工具）
+### 14. patent-value（10 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -186,16 +221,23 @@
 | `operation_situation_indicators` | 运营指标 |
 | `economic_indicators` | 经济指标 |
 
-### 13. patent-visual（17 工具）
+### 15. patent-visual（24 工具）
 
 | 工具 | 说明 |
 |------|------|
-| `trends` / `type_trend` | 趋势 / 类型趋势 |
-| `applicant_ranking` / `inventor_ranking` | 申请人 / 发明人排名 |
-| `most_cited` / `most_asserted` | 最高被引 / 最多主张 |
-| `word_cloud` / `company_word_cloud` / `company_tech_field_word_cloud` | 词云 |
-| `technology_effect_distribution` / `company_tech_effect_dist` | 技术-效果分布 |
-| `simple_legal_status` / `company_simple_legal_status` | 简单法律状态 |
+| `trends` | 趋势 |
+| `type_trend` | 类型趋势 |
+| `applicant_ranking` | 申请人排名 |
+| `inventor_ranking` | 发明人排名 |
+| `most_cited` | 最高被引 |
+| `most_asserted` | 最多主张 |
+| `word_cloud` | 词云 |
+| `company_word_cloud` | 企业词云 |
+| `company_tech_field_word_cloud` | 企业技术领域词云 |
+| `technology_effect_distribution` | 技术-效果分布 |
+| `company_tech_effect_dist` | 企业技术-效果分布 |
+| `simple_legal_status` | 简单法律状态 |
+| `company_simple_legal_status` | 企业简单法律状态 |
 | `priority_country` | 优先权国家 |
 | `portfolio_value` | 专利组合价值 |
 | `wheel_of_innovation` | 创新轮盘 |
@@ -204,16 +246,17 @@
 | `company_strategy_map` | 企业战略地图 |
 | `company_key_technology` | 企业关键技术 |
 | `company_largest_patent_family` | 企业最大专利族 |
-| `company_most_cited` / `company_most_cited_latest` | 企业最高被引 |
+| `company_most_cited` | 企业最高被引 |
+| `company_most_cited_latest` | 企业最新最高被引 |
 | `company_acquisition_divestiture` | 企业收购/剥离 |
 
-### 14. patsnap-analytics（1 工具）
+### 16. patsnap-analytics（1 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `fetch_patent_lifecycle` | 专利生命周期事件 |
 
-### 15. patsnap-ip-searching（5 工具）
+### 17. patsnap-ip-searching（5 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -223,13 +266,13 @@
 | `upload_image` | 上传图片 |
 | `get_task` | 获取任务 |
 
-### 16. patsnap-web-search（1 工具）
+### 18. patsnap-web-search（1 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `web_search` | 实时网页搜索 |
 
-### 17. patsnap-workspace（4 工具）
+### 19. patsnap-workspace（5 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -239,11 +282,20 @@
 | `get_workspace_patents` | 检索目录内专利 |
 | `get_workspace_annotations` | 获取标引和注释 |
 
-### 18. s-telecom-mcp-tools-sep（1 工具）
+### 20. s-telecom-mcp-tools（4 工具）
 
 | 工具 | 说明 |
 |------|------|
-| `standard_claim_charting` | 通信 SEP Claim Charting |
+| `search_tdocs` | TDoc 语义/元数据检索 |
+| `fetch_tdocs` | TDoc 详情读取 |
+| `search_standards` | 标准检索 |
+| `fetch_standard_section` | 标准章节正文读取 |
+
+### 21. s-telecom-mcp-tools-sep（1 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `standard_claim_charting` | SEP Claim Charting |
 
 ---
 
@@ -262,7 +314,19 @@
 | `ls_antibody_antigen_search` | 抗原-抗体搜索 |
 | `ls_modification_search_submit` | 翻译后修饰搜索 |
 
-### 2. clinical-trials（4 工具）
+### 2. chemical-molecular（7 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `ls_structure_search` | 化合物结构搜索 |
+| `ls_structure_fetch` | 化合物结构获取 |
+| `ls_patent_structure_fetch` | 专利结构获取 |
+| `ls_admet_predict` | ADMET 预测 |
+| `ls_chemical_mcs_analyze` | 最大公共子结构分析 |
+| `ls_sar_submit` | SAR 提交 |
+| `ls_sar_fetch` | SAR 结果获取 |
+
+### 3. clinical-trials（4 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -271,7 +335,7 @@
 | `clinical_trial_result_search` | 试验结果检索 |
 | `clinical_trial_result_fetch` | 结果详情 |
 
-### 3. company-deal-intelligence（4 工具）
+### 4. company-deal-intelligence（5 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -281,14 +345,14 @@
 | `drug_deal_fetch` | 交易详情 |
 | `financial_report_search` | 财报查询 |
 
-### 4. current-awareness（2 工具）
+### 5. current-awareness（2 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `news_search` | 新闻检索 |
 | `news_fetch` | 新闻详情 |
 
-### 5. drug-asset（3 工具）
+### 6. drug-asset（3 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -296,26 +360,34 @@
 | `drug_fetch` | 药物详情 |
 | `drug_milestone_fetch` | 研发里程碑 |
 
-### 6. pharma-intelligence（26 工具）
+### 7. pharma-intelligence（30 工具）
 
 | 工具 | 说明 |
 |------|------|
-| `ls_drug_search` / `ls_drug_fetch` | 药物搜索 / 详情 |
+| `ls_drug_search` | 药物搜索 |
+| `ls_drug_fetch` | 药物详情 |
 | `ls_drug_milestone_fetch` | 药物里程碑 |
-| `ls_drug_deal_search` / `ls_drug_deal_fetch` | 交易搜索 / 详情 |
-| `ls_clinical_trial_search` / `ls_clinical_trial_fetch` | 临床试验搜索 / 详情 |
-| `ls_clinical_trial_result_search` / `ls_clinical_trial_result_fetch` | 结果搜索 / 详情 |
+| `ls_drug_deal_search` | 交易搜索 |
+| `ls_drug_deal_fetch` | 交易详情 |
+| `ls_clinical_trial_search` | 临床试验搜索 |
+| `ls_clinical_trial_fetch` | 临床试验详情 |
+| `ls_clinical_trial_result_search` | 结果搜索 |
+| `ls_clinical_trial_result_fetch` | 结果详情 |
 | `ls_clinical_trial_vector_search` | 临床试验语义检索 |
 | `ls_disease_fetch` | 疾病详情 |
 | `ls_target_fetch` | 靶点详情 |
-| `ls_patent_search` / `ls_patent_fetch` | 专利搜索 / 详情 |
+| `ls_patent_search` | 专利搜索 |
+| `ls_patent_fetch` | 专利详情 |
 | `ls_patent_vector_search` | 专利语义检索 |
-| `ls_paper_search` / `ls_paper_fetch` | 文献搜索 / 详情 |
+| `ls_paper_search` | 文献搜索 |
+| `ls_paper_fetch` | 文献详情 |
 | `ls_paper_vector_search` | 文献语义检索 |
 | `ls_organization_fetch` | 组织详情 |
 | `ls_organization_pipeline_fetch` | 组织管线 |
-| `ls_translational_medicine_search` / `ls_translational_medicine_fetch` | 转化医学搜索 / 详情 |
-| `ls_news_fetch` / `ls_news_vector_search` | 新闻详情 / 语义检索 |
+| `ls_translational_medicine_search` | 转化医学搜索 |
+| `ls_translational_medicine_fetch` | 转化医学详情 |
+| `ls_news_fetch` | 新闻详情 |
+| `ls_news_vector_search` | 新闻语义检索 |
 | `ls_web_search` | 网页搜索 |
 | `ls_epidemiology_vector_search` | 流行病学语义检索 |
 | `ls_fda_label_vector_search` | FDA 标签语义检索 |
@@ -323,19 +395,34 @@
 | `ls_clinical_guideline_vector_search` | 临床指南语义检索 |
 | `ls_ner_nor_normalize` | 实体归一化 |
 
-### 7. sar-extraction（2 工具）
+### 8. regulatory-guidelines（2 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `clinical_guideline_search` | 临床指南搜索 |
+| `fda_label_search` | FDA 药品说明书搜索 |
+
+### 9. sar-extraction（2 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `sar_submit` | 提交 SAR 提取任务 |
 | `sar_fetch` | 获取 SAR 结果 |
 
-### 8. scientific-translational-evidence（2 工具）
+### 10. scientific-translational-evidence（2 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `translational_medicine_search` | 转化医学检索 |
 | `translational_medicine_fetch` | 转化医学详情 |
+
+### 11. target-disease（3 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `target_fetch` | 靶点详情 |
+| `disease_fetch` | 疾病详情 |
+| `epidemiology_search` | 流行病学检索 |
 
 ---
 
@@ -348,16 +435,19 @@
 | `search_company` | 企业搜索 |
 | `registration_information` | 工商注册信息 |
 | `shareholder_information` | 股东信息 |
-| `main_member` / `core_member` | 主要人员 / 核心团队 |
+| `main_member` | 主要人员 |
+| `core_member` | 核心团队 |
 | `financing_information` | 融资信息 |
-| `investment_information` / `outbound_investment` | 投资记录 / 对外投资 |
-| `listing_information` / `ipo_process` | 上市信息 / IPO 进程 |
+| `investment_information` | 投资记录 |
+| `outbound_investment` | 对外投资 |
+| `listing_information` | 上市信息 |
+| `ipo_process` | IPO 进程 |
 | `qualification_certificate` | 资质证书 |
 | `technology_qualification` | 科技资质 |
 | `standard_information` | 标准信息 |
 | `awards_information` | 获奖信息 |
 
-### 2. company-profile（25 工具）
+### 2. company-profile（24 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -366,10 +456,12 @@
 | `shareholder_information` | 股东信息 |
 | `core_member` | 核心团队 |
 | `financing_information` | 融资信息 |
-| `listing_information` / `ipo_process` | 上市 / IPO |
+| `listing_information` | 上市信息 |
+| `ipo_process` | IPO 进程 |
 | `outbound_investment` | 对外投资 |
 | `industry_classification` | 行业分类 |
-| `qualification_certificate` / `technology_qualification` | 资质 / 科技资质 |
+| `qualification_certificate` | 资质证书 |
+| `technology_qualification` | 科技资质 |
 | `standard_information` | 标准 |
 | `awards_information` | 获奖 |
 | `patent_simple_bibliography` | 专利简目 |
@@ -394,7 +486,7 @@
 | `enterprise_valuation_full` | 完整估值 |
 | `enterprise_valuation_with_indicators` | 带指标估值 |
 
-### 4. company-tags（7 工具）
+### 4. company-tags（8 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -407,7 +499,7 @@
 | `industry_classification` | 行业分类 |
 | `product_technical_classification` | 产品技术分类 |
 
-### 5. global-tech-eval（7 工具）
+### 5. global-tech-eval（8 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -466,7 +558,25 @@
 | `patsnap_search` | 专利+文献融合搜索 |
 | `patsnap_fetch` | 获取专利/文献详情 |
 
-### 3. report-gen（5 工具）
+### 3. patsnap-solution-engine（6 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `run_triz_innovation_task` | 启动创新攻关任务 |
+| `fetch_triz_innovation_task_stream` | 获取创新任务流 |
+| `fetch_triz_innovation_solution_detail` | 获取创新方案详情 |
+| `run_triz_reduction_task` | 启动降本任务 |
+| `fetch_triz_reduction_task_stream` | 获取降本任务流 |
+| `fetch_triz_reduction_solution_detail` | 获取降本方案详情 |
+
+### 4. patsnap-triz-case-library（2 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `search_triz_case` | TRIZ 案例检索 |
+| `list_triz_search_terms` | 列出检索术语 |
+
+### 5. report-gen（6 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -477,7 +587,7 @@
 | `idea_validation_download` | 报告下载 |
 | `pre_patent_evaluation_export` | 专利预评估导出 |
 
-### 4. tech-collab（2 工具）
+### 6. tech-collab（4 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -571,7 +681,7 @@
 | `extract_content` | 内容提取 |
 | `download_pdf` | PDF 下载 |
 
-### 10. otp-mcp（4 工具）
+### 10. otp-mcp（5 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -581,7 +691,22 @@
 | `get_open_targets_graphql_schema` | 获取 Schema |
 | `get_type_dependencies` | 类型依赖 |
 
-### 11. rdkit（7 工具）
+### 11. pubmed（10 工具）
+
+| 工具 | 说明 |
+|------|------|
+| `search` | PubMed 搜索 |
+| `get_article` | 获取文章 |
+| `get_article_full_text` | 获取全文 |
+| `europepmc_search` | Europe PMC 搜索 |
+| `find_related_articles` | 相关文章 |
+| `lookup_citation` | 引用查找 |
+| `format_citations` | 引用格式化 |
+| `convert_ids` | ID 转换 |
+| `get_lookup_mesh` | MESH 查找 |
+| `spell_check` | 拼写检查 |
+
+### 12. rdkit（7 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -593,7 +718,7 @@
 | `find_maximum_common_substructure` | 最大公共子结构 |
 | `visualize_chemical_reaction` | 化学反应可视化 |
 
-### 12. uniprot-mcp（4 工具）
+### 13. uniprot-mcp（5 工具）
 
 | 工具 | 说明 |
 |------|------|
@@ -603,8 +728,10 @@
 | `get_sequence` | 序列获取 |
 | `map_ids` | ID 映射 |
 
-### 13. who-mcp-server（1 工具）
+### 14. who-mcp-server（1 工具）
 
 | 工具 | 说明 |
 |------|------|
 | `who-health` | WHO 健康数据 |
+
+---

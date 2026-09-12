@@ -4,19 +4,19 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
-  <img src="https://img.shields.io/badge/MCP%20Servers-50-blue.svg" alt="MCP Servers: 50">
+  <img src="https://img.shields.io/badge/MCP%20Servers-59-blue.svg" alt="MCP Servers: 59">
   <img src="https://img.shields.io/badge/Categories-5-green.svg" alt="Categories: 5">
-  <img src="https://img.shields.io/badge/Tools-300+-orange.svg" alt="Tools: 300+">
+  <img src="https://img.shields.io/badge/Tools-417-orange.svg" alt="Tools: 417">
   <img src="https://img.shields.io/badge/Platform-Cursor%20%7C%20Claude%20%7C%20Eureka-blueviolet.svg" alt="Platform">
 </p>
 
 ## 这是什么？
 
-智慧芽开放平台提供了 50 个 MCP（Model Context Protocol）服务，覆盖专利检索、法律状态、全景分析、FTO、OCR、化学结构、生物序列、临床试验、药物情报、文献检索、企业情报等数十个领域。但这些服务分散在官方市场页面中，缺乏一份统一的导航索引。
+智慧芽开放平台提供了 59 个 MCP（Model Context Protocol）服务，覆盖专利检索、法律状态、全景分析、FTO、OCR、化学结构、生物序列、临床试验、药物情报、文献检索、企业情报等数十个领域。但这些服务分散在官方市场页面中，缺乏一份统一的导航索引。
 
-本仓库将这 50 个 MCP 服务整理为：
+本仓库将这 59 个 MCP 服务整理为：
 
-- **[服务总览表](docs/mcp-service-catalog.md)** — 按领域分组的 50 个 MCP 服务一览
+- **[服务总览表](docs/mcp-service-catalog.md)** — 按领域分组的 59 个 MCP 服务一览
 - **[工具矩阵](docs/mcp-tool-matrix.md)** — 每个 MCP 服务下的全部工具清单及输入输出摘要
 - **[配置指南](docs/mcp-setup-guide.md)** — 从获取 Key 到连接客户端的完整步骤
 - **[已知约束](docs/mcp-known-constraints.md)** — 实战踩坑记录和已知限制
@@ -49,17 +49,17 @@ curl https://connect.zhihuiya.com/<service-id>/mcp \
 
 | 分类 | 服务数 | 典型场景 |
 |------|--------|----------|
-| 🔵 IP 智能 | 18 | 专利检索、法律状态、全景分析、FTO、查新、价值评估 |
-| 🟢 生命科学 | 8 | 药物管线、临床试验、靶点、疾病、生物序列、文献 |
+| 🔵 IP 智能 | 21 | 专利检索、法律状态、全景分析、FTO、查新、价值评估、文档解析 |
+| 🟢 生命科学 | 11 | 药物管线、临床试验、靶点、疾病、生物序列、化学分子、文献 |
 | 🟡 企业情报 | 7 | 工商档案、科技评估、风险预警、投行尽调 |
-| 🟠 研发创新 | 4 | 文献检索、语义搜索、报告生成、产学研合作 |
-| ⚪ 工具与其他 | 13 | OCR、化学结构、分子描述符、临床数据库、NCCN 指南等 |
+| 🟠 研发创新 | 6 | 文献检索、语义搜索、TRIZ 方案、报告生成、产学研合作 |
+| ⚪ 工具与其他 | 14 | OCR、化学结构、分子描述符、临床数据库、NCCN 指南、PubMed 等 |
 
 ## 文档目录
 
 | 文件 | 内容 |
 |------|------|
-| [docs/mcp-service-catalog.md](docs/mcp-service-catalog.md) | 50 个 MCP 服务按领域分组的完整目录 |
+| [docs/mcp-service-catalog.md](docs/mcp-service-catalog.md) | 59 个 MCP 服务按领域分组的完整目录 |
 | [docs/mcp-tool-matrix.md](docs/mcp-tool-matrix.md) | 每个 MCP 服务的全部工具清单 |
 | [docs/mcp-setup-guide.md](docs/mcp-setup-guide.md) | 获取 Key → 连接客户端 → 验证连通性 |
 | [docs/mcp-known-constraints.md](docs/mcp-known-constraints.md) | 已知限制、踩坑记录、降级方案 |
