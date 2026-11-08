@@ -1,0 +1,86 @@
+# 智慧芽 MCP 索引 · 月度自动刷新工作流
+#
+# 2026-11-08 实测结论：open.zhihuiya.com 的 MCP 目录、详情页与 /openapi.json
+# 全部**免登录**，且页面 SSR 的 __NUXT_DATA__ 用普通 HTTP GET 即可获得。
+# 因此本工作流完全无人值守：不需要浏览器、Cookie、API Token 或任何 Secret。
+#
+# 链路（由 scripts/refresh_all.py 编排）：
+#   fetch_catalog.py     纯 HTTP 抓取，约 42 秒
+#     -> apply_catalog.py     写入最新官方事实
+#     -> infer_api_mapping.py 基于最新 index.json 推断 MCP -> API 映射
+#     -> apply_catalog.py          合并映射（幂等）
+#     -> build_recommendations.py  起步包 / 场景推荐 / 上下文成本（读人工策展表）
+#     -> build_docs.py             重出 5 份 Markdown + llms.txt + AGENTS.md
+#     -> 有 diff 才开 PR（数据没变不会产生噪声 PR）
+#
+# 人工确认保存在两个文件里，优先级最高，自动刷新不会覆盖：
+#   data/manual-overrides.json  MCP→API 映射的实测结论
+#   data/recommendations.json   起步包与场景的「该装什么」判断
+# 启用方式：推送本文件后在仓库 Actions 页启用即可，无需配置任何 Secret。
+
+name: refresh-index
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"   # 每月 1 日 02:00 UTC
+  workflow_dispatch: {}    # 允许手动触发
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Full refresh (no auth, no browser)
+        run: python scripts/refresh_all.py
+
+      - name: Report
+        run: |
+          echo "## 本次刷新结果" >> "$GITHUB_STEP_SUMMARY"
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          r = json.load(open("raw/fetch-report.json", encoding="utf-8"))
+          d = json.load(open("index.json", encoding="utf-8"))
+          c = d["meta"]["counts"]
+          print(f"- MCP: {c['mcp_in_scope']} / tool: {c['tools_total']} / API: {c['api_total']}")
+          print(f"- 已建立 MCP→API 映射: {c['tools_with_api_ref']} / {c['tools_total']} tool")
+          print(f"- 反向挂上 MCP 工具的 API 端点: {c['apis_with_mcp_wrapper']}")
+          print(f"- 起步包: {c['starter_kits']} / 场景: {c['scenario_bundles']} "
+                f"(起步级 {c['scenario_level_starter']} / 高阶 {c['scenario_level_advanced']})")
+          print(f"- MCP 推荐覆盖: {c['mcp_recommendation_coverage']}/{c['mcp_in_scope']}")
+          print(f"- 抓取失败: {len(r['errors'])}")
+          print(f"- 免登录: {not r['auth_required']} / 免浏览器: {not r['browser_required']}")
+          print(f"- 版本: v{d['meta']['version']} · 生成于 {d['meta']['generated_at']}")
+          PY
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "变更文件：" >> "$GITHUB_STEP_SUMMARY"
+          git status --short >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit & open PR (only when changed)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: monthly refresh of Patsnap MCP/API index"
+          title: "Monthly refresh: 智慧芽 MCP/API 索引"
+          body: |
+            自动刷新结果：
+            - 已从 open.zhihuiya.com 全量重抓 MCP 目录、每个 MCP 的 tool 及 OpenAPI 规范（免登录、免浏览器）。
+            - 已重新推断 MCP → API 映射；`data/manual-overrides.json` 中人工确认的条目优先保留。
+            - 已重算起步包、36 条场景推荐与上下文成本；`data/recommendations.json` 的判断不被覆盖。
+            - 已更新 `index.json`、5 份自动生成的 Markdown，以及 `llms.txt` / `AGENTS.md`。
+            - 数据无变化时本 PR 不会创建（幂等）。
+
+            请人工复核（建议每季度一次）：
+            - `docs/api-mapping-review.md` 中标 `needs_review` 的映射条目
+            - `exclusive`（API-only / MCP-only 实测结论）
+            - `data/recommendations.json`（起步包与场景判断，不是直接改 index.json）
+            - `mcps[].context_weight`、`replaces`（重复 tool 判断）
+          branch: bot/refresh-index
+          delete-branch: true

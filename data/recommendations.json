@@ -1,0 +1,346 @@
+{
+  "_readme": "人工策展文件：起步包 + 场景路由表的『判断』部分。脚本 scripts/build_recommendations.py 会读它，自动补齐上下文成本、tool 数、场景对应的 API 编号，再写回 index.json。★ 这里只写『该装什么』的判断，不写数量和 API 编号——那些由官方数据自动算，避免手写失真。★ 本文件不会被每月自动刷新覆盖。",
+  "version": "1.0",
+  "model": "起步包按用户身份/领域划分（不按 5 根主干），每个包分 minimal / standard 两档；场景表按 level 分起步级与高阶用途。",
+  "starter_kits": [
+    {
+      "id": "patent-practitioner",
+      "name": "专利 / IP 从业者",
+      "who": "企业 IP 部门、专利代理师、专利分析师、律所专利团队",
+      "domain": "patent",
+      "minimal": {
+        "mcps": ["core-patents"],
+        "why": "一个 MCP 覆盖全球专利检索、著录项目、权利要求、说明书、附图、同族与引用，是专利场景的最小可用闭环。"
+      },
+      "standard": {
+        "mcps": ["core-patents", "patent-status", "patsnap-ip-searching"],
+        "why": "在检索之上补法律状态/年费/诉讼监测，以及 FTO/查新检索入口，覆盖专利日常工作约 80% 的需求。"
+      },
+      "covers_scenarios": ["专利检索与阅读", "法律状态/年费/诉讼监测", "发明 FTO 分析", "查新检索", "专利纠纷分析"],
+      "upgrade_to": ["patent-landscape", "patent-visual", "novelty-search-lite", "design-fto-search-mcp", "patent-dispute", "drafting", "fto-search"],
+      "note": "不要一上来装专利域全部 23 个 MCP。全景分析、价值评估、撰写、SEP 对照等都属高阶，按具体任务再叠加。"
+    },
+    {
+      "id": "pharma-analyst",
+      "name": "医药 / 生命科学情报",
+      "who": "药企 BD、研发立项、临床与注册、医药投资分析",
+      "domain": "pharma",
+      "minimal": {
+        "mcps": ["drug-asset", "clinical-trials"],
+        "why": "只查药物管线与临床试验时，两个小而专的 MCP 就够。★ 医药主干 pharma-intelligence 单个约 2.7 万 token，是本档的十几倍，轻量用户不要装。"
+      },
+      "standard": {
+        "mcps": ["pharma-intelligence"],
+        "why": "一个综合终端已聚合临床、药物、靶点、疾病、生物序列、交易、FDA、流行病学、指南、财报、新闻、转化医学等十余类数据，可替代几乎全部细分 MCP；代价是工具定义较重。"
+      },
+      "covers_scenarios": ["医药综合情报", "临床试验调研", "靶点/疾病画像", "药物管线与资产", "行业动态 / 竞情监测"],
+      "upgrade_to": ["biology-modality", "chemical-molecular", "company-deal-intelligence", "regulatory-guidelines", "scientific-translational-evidence", "sar-extraction"],
+      "note": "★ 这是全库上下文成本最悬殊的一个域：若只做单一细分（如只查临床、只查靶点），优先按场景表装 1 个小 MCP，别装主干。需要跨十几类数据联动时才上 pharma-intelligence。"
+    },
+    {
+      "id": "corporate-diligence",
+      "name": "企业 / 投资尽调",
+      "who": "投资机构、券商研究、企业战略、供应链风控、科创板评估",
+      "domain": "finance",
+      "minimal": {
+        "mcps": ["company-profile"],
+        "why": "企业科技 360 档案一个 MCP 即覆盖工商、资质、团队、投融资、专利与科技画像，适合快速核验主体。"
+      },
+      "standard": {
+        "mcps": ["company-profile", "tech-diligence", "company-risk"],
+        "why": "补上科创投资尽调与风险预警，形成『核验 → 评估 → 预警』闭环。"
+      },
+      "covers_scenarios": ["企业画像/尽调", "科创评估/风险预警", "企业科创力快评", "企业无形资产盘点"],
+      "upgrade_to": ["company-credit", "company-tags", "global-tech-eval", "company-intelligence-mcp", "patent-risk", "intangible-assets"],
+      "note": "company-profile 与 company-credit 在企业工商维度有重叠，除非需要更细的信用档案，否则不要同时装。"
+    },
+    {
+      "id": "materials-rnd",
+      "name": "材料 / 配方研发",
+      "who": "材料研发工程师、日化配方、高分子与金属工艺、化妆品法规",
+      "domain": "materials",
+      "minimal": {
+        "mcps": ["materials-search-mcp"],
+        "why": "材料搜索（金属、高分子配方、化妆品等）是材料域的最小可用入口，只有 2 个工具。"
+      },
+      "standard": {
+        "mcps": ["materials-search-mcp", "chemical-molecular", "mat-cosmetics-regulatory"],
+        "why": "补化学分子结构/ADMET 与化妆品法规合规查询，覆盖配方研发到合规的主要链路。"
+      },
+      "covers_scenarios": ["材料配方 / 性能检索", "化妆品法规合规", "化学分子/ADMET/SAR"],
+      "upgrade_to": ["sar-extraction", "patsnap-search", "literature-search"],
+      "note": "材料域目前仅 2 个原生 MCP，是五个域里最轻的。化学分子相关 MCP 按官方分类归在医药情报，此处按用途跨域引用。"
+    },
+    {
+      "id": "rnd-engineer",
+      "name": "研发 / 创新工程师",
+      "who": "企业研发、技术预研、创新方法推进、科技情报",
+      "domain": "rnd",
+      "minimal": {
+        "mcps": ["patsnap-search"],
+        "why": "专利 + 文献融合检索一个入口即可起步，避免同时装专利库和文献库两个 MCP。"
+      },
+      "standard": {
+        "mcps": ["patsnap-search", "patsnap-solution-engine", "report-gen"],
+        "why": "在融合检索之上补 TRIZ 创新方案生成与报告生成，形成『检索 → 解题 → 输出』链路。"
+      },
+      "covers_scenarios": ["文献检索", "TRIZ 创新/降本", "报告生成", "产学研合作 / 专家寻找"],
+      "upgrade_to": ["literature-search", "patsnap-triz-case-library", "tech-collab", "document-processing"],
+      "note": "若只查科研文献，可把 minimal 降级为 literature-search（约 480 token，比融合检索轻 6 倍）。"
+    }
+  ],
+  "scenario_bundles": [
+    {
+      "scenario": "专利检索与阅读",
+      "level": "starter",
+      "required_mcps": ["core-patents"],
+      "optional_mcps": ["patsnap-search", "patent-briefing"],
+      "note": "核心著录、权利要求、说明书、附图、同族与引用，均由 core-patents 覆盖；速览简报与融合检索按需叠加。"
+    },
+    {
+      "scenario": "查新检索",
+      "level": "starter",
+      "required_mcps": ["novelty-search-lite", "core-patents"],
+      "optional_mcps": ["patsnap-ip-searching"],
+      "note": "查新流程为长周期任务；core-patents 用于补充对比文件的著录与全文。"
+    },
+    {
+      "scenario": "发明 FTO 分析",
+      "level": "advanced",
+      "required_mcps": ["patsnap-ip-searching", "core-patents", "patent-status"],
+      "optional_mcps": ["patent-dispute", "fto-search"],
+      "note": "FTO 检索 + 法律状态/诉讼兜底；fto-search 为简化流程入口，轻量场景可替代。"
+    },
+    {
+      "scenario": "外观 FTO 分析",
+      "level": "advanced",
+      "required_mcps": ["design-fto-search-mcp", "core-patents"],
+      "optional_mcps": ["patsnap-ip-searching"],
+      "note": "外观设计侵权风险检索走独立工作流。"
+    },
+    {
+      "scenario": "专利全景分析",
+      "level": "advanced",
+      "required_mcps": ["patent-landscape", "core-patents"],
+      "optional_mcps": ["patent-visual", "landscape-projects"],
+      "note": "趋势、构成、申请人排名等多为 MCP 聚合结果，可视化再叠加 patent-visual。"
+    },
+    {
+      "scenario": "专利价值评估",
+      "level": "advanced",
+      "required_mcps": ["patent-value", "core-patents"],
+      "optional_mcps": ["company-profile"],
+      "note": "估值指标为 MCP 聚合；需要受让方/企业背景时叠加 company-profile。"
+    },
+    {
+      "scenario": "法律状态/年费/诉讼监测",
+      "level": "starter",
+      "required_mcps": ["patent-status"],
+      "optional_mcps": ["patent-dispute", "global-tech-eval", "patent-risk"],
+      "note": "★ 只做这一件事时，装 patent-status 一个即可，不必装 core-patents。SEP 与海外审查文件另见通信标准场景。"
+    },
+    {
+      "scenario": "专利纠纷分析",
+      "level": "advanced",
+      "required_mcps": ["patent-dispute", "core-patents", "patent-status"],
+      "optional_mcps": [],
+      "note": "诉讼、无效、复审与纠纷情报，需配合基础专利数据与法律状态。"
+    },
+    {
+      "scenario": "技术挖掘/三要素",
+      "level": "advanced",
+      "required_mcps": ["patent-mining", "core-patents"],
+      "optional_mcps": ["patent-analysis"],
+      "note": "技术功效/三要素抽取为 AI 工作流，结果需回到 core-patents 核对原文。"
+    },
+    {
+      "scenario": "医药综合情报",
+      "level": "advanced",
+      "required_mcps": ["pharma-intelligence"],
+      "optional_mcps": ["clinical-trials", "drug-asset", "target-disease", "company-deal-intelligence"],
+      "note": "★ pharma-intelligence 已聚合十余类医药数据，工具定义约 2.7 万 token；只在需要跨类联动时启用，单一细分请走下面的轻量场景。"
+    },
+    {
+      "scenario": "临床试验调研",
+      "level": "starter",
+      "required_mcps": ["clinical-trials"],
+      "optional_mcps": ["pharma-intelligence"],
+      "note": "只查临床试验时装 clinical-trials 即可；pharma-intelligence 的 ls_clinical_trial_* 与之重叠，二选一。"
+    },
+    {
+      "scenario": "靶点/疾病画像",
+      "level": "starter",
+      "required_mcps": ["target-disease"],
+      "optional_mcps": ["pharma-intelligence", "scientific-translational-evidence"],
+      "note": "轻量场景优先 target-disease；需要转化医学证据时再叠加。"
+    },
+    {
+      "scenario": "药物管线与资产",
+      "level": "starter",
+      "required_mcps": ["drug-asset"],
+      "optional_mcps": ["company-deal-intelligence", "pharma-intelligence"],
+      "note": "药物、适应症、研发状态与资产信息；交易/授权数据叠加 company-deal-intelligence。"
+    },
+    {
+      "scenario": "化学分子/ADMET/SAR",
+      "level": "advanced",
+      "required_mcps": ["chemical-molecular"],
+      "optional_mcps": ["sar-extraction"],
+      "note": "化学结构检索、性质与 ADMET；SAR 提取为长周期任务。"
+    },
+    {
+      "scenario": "生物序列分析",
+      "level": "advanced",
+      "required_mcps": ["biology-modality"],
+      "optional_mcps": [],
+      "note": "序列检索、比对与抗体/抗原信息；该 MCP 工具定义较重，按任务启用。"
+    },
+    {
+      "scenario": "企业画像/尽调",
+      "level": "starter",
+      "required_mcps": ["company-profile"],
+      "optional_mcps": ["company-credit", "company-tags", "tech-diligence", "company-risk"],
+      "note": "company-profile 已含 360 档案，细分场景再叠加分支；与 company-credit 在工商维度重叠。"
+    },
+    {
+      "scenario": "科创评估/风险预警",
+      "level": "advanced",
+      "required_mcps": ["global-tech-eval"],
+      "optional_mcps": ["company-risk", "patent-risk", "tech-diligence"],
+      "note": "全球企业科技评估与风险趋势监测。"
+    },
+    {
+      "scenario": "文献检索",
+      "level": "starter",
+      "required_mcps": ["patsnap-search"],
+      "optional_mcps": ["literature-search", "pharma-intelligence"],
+      "note": "patsnap-search 融合专利+文献；只查科研文献可降级为 literature-search（更轻）。"
+    },
+    {
+      "scenario": "报告生成",
+      "level": "advanced",
+      "required_mcps": ["report-gen"],
+      "optional_mcps": ["patsnap-workspace"],
+      "note": "查新/创新报告生成；需要读取工作空间专利集合时叠加 patsnap-workspace。"
+    },
+    {
+      "scenario": "TRIZ 创新/降本",
+      "level": "starter",
+      "required_mcps": ["patsnap-solution-engine"],
+      "optional_mcps": ["patsnap-triz-case-library"],
+      "note": "技术方案生成与降本攻关，工具很轻，可单独启用。"
+    },
+    {
+      "scenario": "文档 OCR/翻译",
+      "level": "starter",
+      "required_mcps": ["document-processing"],
+      "optional_mcps": [],
+      "note": "仅限专利场景的 OCR 与专利文本翻译，非泛领域文档处理。★ 早期文档里手写过 AI60/AI61 两个编号，现已不在官方清单，本表不再保留，以自动反查结果为准。"
+    },
+    {
+      "scenario": "通信标准/SEP",
+      "level": "advanced",
+      "required_mcps": ["s-telecom-mcp-tools"],
+      "optional_mcps": ["s-telecom-mcp-sep", "patent-status"],
+      "note": "3GPP TDoc 检索、Claim Charting 与 SEP 对标分析。"
+    },
+    {
+      "scenario": "企业科创力快评",
+      "level": "starter",
+      "required_mcps": ["company-intelligence-mcp"],
+      "optional_mcps": ["global-tech-eval"],
+      "note": "单个轻量 MCP 快速给出企业科创力结论，适合批量初筛。"
+    },
+    {
+      "scenario": "企业无形资产盘点",
+      "level": "advanced",
+      "required_mcps": ["intangible-assets"],
+      "optional_mcps": ["company-profile", "patent-value"],
+      "note": "商标、软著、专利等无形资产档案；本仓库只收录智慧芽原生能力。"
+    },
+    {
+      "scenario": "行业动态 / 竞情监测",
+      "level": "starter",
+      "required_mcps": ["current-awareness"],
+      "optional_mcps": ["patsnap-web-search", "company-deal-intelligence"],
+      "note": "最新资讯与行业动态跟踪；需要网页级信息时叠加 patsnap-web-search。"
+    },
+    {
+      "scenario": "技术网页信息检索",
+      "level": "starter",
+      "required_mcps": ["patsnap-web-search"],
+      "optional_mcps": [],
+      "note": "全库最轻的 MCP 之一（1 个工具），适合作为通用网页检索补充。"
+    },
+    {
+      "scenario": "专利撰写 / 交底书辅助",
+      "level": "advanced",
+      "required_mcps": ["drafting"],
+      "optional_mcps": ["core-patents", "patsnap-search"],
+      "note": "撰写助手为长流程任务，需配合现有专利检索做现有技术核对。"
+    },
+    {
+      "scenario": "防侵权检索（简化流程）",
+      "level": "starter",
+      "required_mcps": ["fto-search"],
+      "optional_mcps": ["patsnap-ip-searching", "core-patents"],
+      "note": "相对完整 FTO 流程更轻的防侵权检索入口，适合初筛。"
+    },
+    {
+      "scenario": "工作空间专利集合读取",
+      "level": "advanced",
+      "required_mcps": ["patsnap-workspace"],
+      "optional_mcps": ["report-gen", "patent-landscape"],
+      "note": "读取用户在智慧芽工作空间已保存的专利集合，常作为报告/全景分析的输入。"
+    },
+    {
+      "scenario": "平台分析任务状态",
+      "level": "starter",
+      "required_mcps": ["patsnap-analytics"],
+      "optional_mcps": [],
+      "note": "全库最轻的 MCP（1 个工具），用于查询分析任务状态等平台级操作。"
+    },
+    {
+      "scenario": "IP 知识学习 / 培训",
+      "level": "starter",
+      "required_mcps": ["ip-courses"],
+      "optional_mcps": [],
+      "note": "知识产权课程内容查询，与数据检索无关，按需启用。"
+    },
+    {
+      "scenario": "材料配方 / 性能检索",
+      "level": "starter",
+      "required_mcps": ["materials-search-mcp"],
+      "optional_mcps": ["chemical-molecular", "patsnap-search"],
+      "note": "金属、高分子配方、化妆品等材料数据与原文证据提取。"
+    },
+    {
+      "scenario": "化妆品法规合规",
+      "level": "starter",
+      "required_mcps": ["mat-cosmetics-regulatory"],
+      "optional_mcps": ["materials-search-mcp"],
+      "note": "化妆品原料与法规合规查询，1 个工具，可单独启用。"
+    },
+    {
+      "scenario": "药品监管 / 临床指南",
+      "level": "starter",
+      "required_mcps": ["regulatory-guidelines"],
+      "optional_mcps": ["pharma-intelligence", "clinical-trials"],
+      "note": "监管文件与临床指南查询；需要综合医药数据时再上主干。"
+    },
+    {
+      "scenario": "转化医学证据检索",
+      "level": "starter",
+      "required_mcps": ["scientific-translational-evidence"],
+      "optional_mcps": ["target-disease", "pharma-intelligence"],
+      "note": "靶点—疾病—药物证据链，轻量场景可单独启用。"
+    },
+    {
+      "scenario": "产学研合作 / 专家寻找",
+      "level": "advanced",
+      "required_mcps": ["tech-collab"],
+      "optional_mcps": ["literature-search", "patsnap-search"],
+      "note": "高校/专家/合作线索分析，常配合文献检索使用。"
+    }
+  ]
+}

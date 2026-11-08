@@ -1,5 +1,17 @@
+# 抓取中间产物：体积大、每次刷新都变，不入库（可由 fetch_catalog.py 随时重生成）
+/raw/
+/.playwright-cli/
+/mcp-market.yaml
+/mcp-detail.yaml
+/api-reference.yaml
+
+# Python
 __pycache__/
-*.pyc
-.DS_Store
+*.py[cod]
 *.log
+.DS_Store
+
+# 本地登录态 / 密钥（防御性，当前流程并不需要）
+auth.json
+*.key
 .env

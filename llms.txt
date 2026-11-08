@@ -1,0 +1,43 @@
+# patsnap-mcp-index
+
+> 智慧芽（PatSnap）开放平台 MCP / API 架构索引，社区维护、非官方。本仓库主要面向 AI 客户端 / 智能体程序化消费：回答「智慧芽有哪些 MCP 与 API、各自能取什么数据、MCP 与 API 如何对应、某个检索场景该配置哪些」。
+
+> 数据版本 v0.6.0 · 更新于 2026-11-08T08:46:13Z · 数据源 open.zhihuiya.com（免登录，每月自动刷新）· 当前口径：50 个原生 MCP / 411 个 tool / 376 个 API / 36 条场景路由 / 5 个起步包。
+
+## 读取顺序（重要）
+
+- `index.json` 约 2.3 MB，**不要整文件塞进对话上下文**。请程序化按需解析：
+  1. `meta` — 范围、counts、recommendation_model、known_gaps
+  2. `starter_kits` — 起步配置建议（按用户身份，最小/标准两档）
+  3. `scenario_bundles` — 场景 → 必备/可选 MCP + `api_codes` + 上下文成本 + 起步/高阶分级
+  4. `domains` / `mcps[id]` — 单个 MCP 的 tool 清单、入参 schema、context_cost
+  5. `apis[code]` — 单个 API 的请求/响应字段
+  6. `api_mapping` — 映射方法与置信度分级
+  7. `exclusive` — API-only / MCP-only 硬知识（当前为空，待维护者补充）
+
+## 文件导航
+
+- [AGENTS.md](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/AGENTS.md): 给智能体的决策流程与数据边界（回答用户检索需求时先读这个）
+- [README.md](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/README.md): 仓库总览、范围说明、更新机制
+- [docs/getting-started.md](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/docs/getting-started.md): 起步配置与典型场景推荐（人读）
+- [index.json](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/index.json): 机读真相源，唯一权威数据
+- [docs/architecture-tree.md](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/docs/architecture-tree.md): 5 域架构树与场景路由表
+- [docs/mcp-catalog.md](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/docs/mcp-catalog.md): 50 个 MCP / 411 个 tool 全量明细
+- [docs/api-catalog.md](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/docs/api-catalog.md): 376 个 API 端点与字段概览
+- [docs/api-mapping-review.md](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/docs/api-mapping-review.md): MCP↔API 映射置信度与复核清单
+- [data/recommendations.json](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/data/recommendations.json): 起步包与场景的人工策展判断
+- [data/manual-overrides.json](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/data/manual-overrides.json): 映射的实测确认值（优先级最高）
+
+## 关键约束
+
+- 只收录智慧芽**原生** MCP / API；第三方数据源封装（pubmed/chembl/otp 等）不纳入。
+- `context_cost.est_tokens` 是按 tool schema 字符数 / 3.2 的粗估，仅用于相对择优，不是计费值。
+- 官方 MCP 详情页只给 tool 的**入参** schema，不给返回字段；字段级信息在 `apis[].response_fields`。
+- MCP↔API 映射仅覆盖 204 / 411 个 tool；其余是工作流/AI 聚合类，静态不可推断，**留空而不猜测**。
+- `exclusive` 当前为空：不要据此断言「某数据只能 API 获取」或「只能 MCP 获取」。
+
+## Optional
+
+- [scripts/refresh_all.py](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/scripts/refresh_all.py): 一键刷新链路（纯 HTTP，免登录）
+- [scripts/recommend.py](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/scripts/recommend.py): 场景→MCP/API 建议的参考实现（`python scripts/recommend.py "FTO"`）
+- [.github/workflows/refresh.yml](https://raw.githubusercontent.com/Philip0910732123/patsnap-mcp-index/main/.github/workflows/refresh.yml): 每月 1 日自动刷新并开 PR

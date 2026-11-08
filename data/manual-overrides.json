@@ -1,0 +1,10 @@
+{
+  "_readme": "人工确认表：这里的条目优先级最高，月度自动刷新不会覆盖。键格式是 'MCP的id/工具名'，值里 api_code 填你实测确认的 API 编号（可填 null 表示确认无对应 API）。填完重新运行 python scripts/apply_catalog.py 即可生效。",
+  "_example": {
+    "core-patents/legal_data": {
+      "api_code": "P026",
+      "note": "实测：该工具返回法律详情，对应 /advanced-patent-data/legal-data"
+    }
+  },
+  "mappings": {}
+}

@@ -1,0 +1,6293 @@
+{
+  "method": "分层证据判定：人工确认 > 官方描述模板 > 双向唯一入参签名 > 仅候选 > 工作流不可推断",
+  "important_limit": "官方 MCP 页面不提供 tool 输出字段，因此无法用响应参数做映射；且数据字典类 tool 共用同一组入参，纯参数匹配会产生大量假阳性。",
+  "stats": {
+    "tools_total": 411,
+    "mapped": 204,
+    "unresolved": 207,
+    "by_status": {
+      "legacy_unverified": 28,
+      "inferred_official_name": 157,
+      "inferred_param_exclusive": 19
+    },
+    "unresolved_by_status": {
+      "opaque_workflow": 135,
+      "candidate_only": 72
+    },
+    "conflicts_with_legacy": 15,
+    "distinct_apis_mapped": 123,
+    "apis_without_request_fields": 33
+  },
+  "entries": [
+    {
+      "mcp": "patent-analysis",
+      "tool": "aggregate_patents",
+      "api_code": "P001",
+      "api_name": "检索式统计专利量",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-count/v2",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "document-processing",
+      "tool": "translation_docx",
+      "api_code": "AI61",
+      "api_name": "AI翻译",
+      "api_paths": [
+        {
+          "path": "/ai/translation",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "document-processing",
+      "tool": "translation_text",
+      "api_code": "AI61",
+      "api_name": "AI翻译",
+      "api_paths": [
+        {
+          "path": "/ai/translation",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patsnap-ip-searching",
+      "tool": "upload_image",
+      "api_code": "P010",
+      "api_name": "上传图片获取专利图像检索URL",
+      "api_paths": [
+        {
+          "path": "/image-search/image-upload",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patsnap-ip-searching",
+      "tool": "design_fto",
+      "api_code": "AI39-1",
+      "api_name": "外观防侵权检索-提交工作流任务",
+      "api_paths": [
+        {
+          "path": "/api/mcp/submit-workflow",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patsnap-ip-searching",
+      "tool": "fto_review",
+      "api_code": "AI66-4",
+      "api_name": "防侵权检索-启动FTO检索",
+      "api_paths": [
+        {
+          "path": "/ai/fto/search/agent",
+          "method": "POST"
+        },
+        {
+          "path": "/fto_steps/keyword_expansion",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": true,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patsnap-ip-searching",
+      "tool": "novelty_search",
+      "api_code": "AI35-2",
+      "api_name": "查新检索-总结技术要点",
+      "api_paths": [
+        {
+          "path": "/ai/novelty-search/tech-solution/get",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patsnap-solution-engine",
+      "tool": "run_triz_innovation_task",
+      "api_code": "AI33-1",
+      "api_name": "技术方案探索-创建任务",
+      "api_paths": [
+        {
+          "path": "/ai/find-solution/step1/v3",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_lite_boolean_search",
+      "api_code": "P002",
+      "api_name": "检索式检索专利",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent/v2",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_lite_semantic_search",
+      "api_code": "P008",
+      "api_name": "语义检索相似专利",
+      "api_paths": [
+        {
+          "path": "/search/patent/semantic-search-patent/v2",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_feature_extract",
+      "api_code": "AI35-4",
+      "api_name": "查新检索-提取技术特征",
+      "api_paths": [
+        {
+          "path": "/ai/novelty-search/feature/extract",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_keywords_extract",
+      "api_code": "AI35-6",
+      "api_name": "查新检索-提取检索要素",
+      "api_paths": [
+        {
+          "path": "/ai/novelty-search/retrieval/elements",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_ner_nor_normalize",
+      "api_code": "AI01",
+      "api_name": "药物DDT抽取",
+      "api_paths": [
+        {
+          "path": "/ai/ner/ddt-ner",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_patent_fetch",
+      "api_code": "P012",
+      "api_name": "著录项目",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/bibliography",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_patent_search",
+      "api_code": "P002",
+      "api_name": "检索式检索专利",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent/v2",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "intangible-assets",
+      "tool": "ic_design",
+      "api_code": "C033",
+      "api_name": "科创企业集成电路布图设计",
+      "api_paths": [
+        {
+          "path": "/special-ip-data/ic-design",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业集成电路布图设计相关…」唯一对应 API 中文名「科创企业集成电路布图设计」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "intangible-assets",
+      "tool": "new_plant_variety",
+      "api_code": "C034",
+      "api_name": "企业植物新品种保护申请信息",
+      "api_paths": [
+        {
+          "path": "/special-ip-data/new-plant-variety/application",
+          "method": "POST"
+        },
+        {
+          "path": "/special-ip-data/new-plant-variety/issue",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": true,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业植物新品种保护授权信息相关…」唯一对应 API 中文名「企业植物新品种保护授权信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "intangible-assets",
+      "tool": "potential_buyer",
+      "api_code": "C046",
+      "api_name": "潜在买家推荐接口",
+      "api_paths": [
+        {
+          "path": "/search/patent/potential-buyer",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "transfer_data",
+      "api_code": "P029",
+      "api_name": "专利转移",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/transfer-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利转移相关…」唯一对应 API 中文名「专利转移」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "search_patents",
+      "api_code": "P002",
+      "api_name": "检索式检索专利",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent/v2",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "reexam_invalidation",
+      "api_code": "P027",
+      "api_name": "复审无效",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/re-examination-and-invalidation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取复审无效相关…」唯一对应 API 中文名「复审无效」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "pledge_data",
+      "api_code": "P030",
+      "api_name": "专利质押",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/pledge-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利质押相关…」唯一对应 API 中文名「专利质押」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "pdf",
+      "api_code": "P020",
+      "api_name": "PDF全文",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/pdf-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取PDF全文相关…」唯一对应 API 中文名「PDF全文」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "patent_valuation",
+      "api_code": "P035",
+      "api_name": "专利价值",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/patent_valuation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利价值相关…」唯一对应 API 中文名「专利价值」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "license_data",
+      "api_code": "P028",
+      "api_name": "专利许可",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/license-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利许可相关…」唯一对应 API 中文名「专利许可」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "legal_status",
+      "api_code": "P041",
+      "api_name": "简单法律状态",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/simple-legal-status",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取简单法律状态相关…」唯一对应 API 中文名「简单法律状态」",
+      "legacy_ref": "P013/P041",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "legal_data",
+      "api_code": "P026",
+      "api_name": "法律详情",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/legal-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取法律详情相关…」唯一对应 API 中文名「法律详情」",
+      "legacy_ref": "P013",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "fulltext_image",
+      "api_code": "P042",
+      "api_name": "全文附图",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/fulltext-image",
+          "method": "POST"
+        },
+        {
+          "path": "/basic-patent-data/fulltext-inline-image",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": true,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取全文附图相关…」唯一对应 API 中文名「全文附图」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "abstract_image",
+      "api_code": "P021",
+      "api_name": "摘要附图",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/abstract-image",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取摘要附图相关…」唯一对应 API 中文名「摘要附图」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "family",
+      "api_code": "P014",
+      "api_name": "专利家族",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/patent-family",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "desc_translated",
+      "api_code": "P045",
+      "api_name": "说明书翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/description-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取说明书翻译相关…」唯一对应 API 中文名「说明书翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "description",
+      "api_code": "P019",
+      "api_name": "说明书",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/description-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取说明书相关…」唯一对应 API 中文名「说明书」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "customs_data",
+      "api_code": "P031",
+      "api_name": "海关备案",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/customs-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取海关备案相关…」唯一对应 API 中文名「海关备案」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "claim_translated",
+      "api_code": "P044",
+      "api_name": "权利要求翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/claim-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取权利要求翻译相关…」唯一对应 API 中文名「权利要求翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "claims",
+      "api_code": "P018",
+      "api_name": "权利要求",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/claim-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取权利要求相关…」唯一对应 API 中文名「权利要求」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "bibliography",
+      "api_code": "P012",
+      "api_name": "著录项目",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/bibliography",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取著录项目相关…」唯一对应 API 中文名「著录项目」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "award_data",
+      "api_code": "P032",
+      "api_name": "专利奖",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/award-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利奖相关…」唯一对应 API 中文名「专利奖」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "abstract_translated",
+      "api_code": "P043",
+      "api_name": "摘要翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/abstract-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取摘要翻译相关…」唯一对应 API 中文名「摘要翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "design-fto-search-mcp",
+      "tool": "create_image_upload_url",
+      "api_code": "P010",
+      "api_name": "上传图片获取专利图像检索URL",
+      "api_paths": [
+        {
+          "path": "/image-search/image-upload",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "design-fto-search-mcp",
+      "tool": "submit_workflow",
+      "api_code": "AI39-1",
+      "api_name": "外观防侵权检索-提交工作流任务",
+      "api_paths": [
+        {
+          "path": "/api/mcp/submit-workflow",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "design-fto-search-mcp",
+      "tool": "get_stage_result",
+      "api_code": "AI39-3",
+      "api_name": "外观防侵权检索-获取阶段执行结果",
+      "api_paths": [
+        {
+          "path": "/api/mcp/task/stage/result",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "report-gen",
+      "tool": "idea_validation_create",
+      "api_code": "AI29-1",
+      "api_name": "创建技术想法查新报告",
+      "api_paths": [
+        {
+          "path": "/search/patent/idea-validation/task/create",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取创建技术想法查新报告相关…」唯一对应 API 中文名「创建技术想法查新报告」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "report-gen",
+      "tool": "idea_validation_download",
+      "api_code": "AI29-3",
+      "api_name": "下载技术想法查新报告",
+      "api_paths": [
+        {
+          "path": "/search/patent/idea-validation/job_id/status",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "report-gen",
+      "tool": "idea_validation_similar",
+      "api_code": "AI30",
+      "api_name": "相似专利检索与比对",
+      "api_paths": [
+        {
+          "path": "/search/patent/similar-patent-comparison",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "tech-collab",
+      "tool": "company_core_patent",
+      "api_code": "C112",
+      "api_name": "企业核心专利",
+      "api_paths": [
+        {
+          "path": "/innovation/company/core_patent",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业核心专利相关…」唯一对应 API 中文名「企业核心专利」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-collab",
+      "tool": "industry_university_research",
+      "api_code": "C114",
+      "api_name": "企业产学研分析",
+      "api_paths": [
+        {
+          "path": "/company/industry-university-research",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业产学研分析相关…」唯一对应 API 中文名「企业产学研分析」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-collab",
+      "tool": "industry_university_research_ipc",
+      "api_code": "C115",
+      "api_name": "企业产学研研发技术分析",
+      "api_paths": [
+        {
+          "path": "/company/industry-university-research-ipc",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业产学研研发技术分析相关…」唯一对应 API 中文名「企业产学研研发技术分析」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "company_awards",
+      "api_code": "C006",
+      "api_name": "获奖情况",
+      "api_paths": [
+        {
+          "path": "/company/awards",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取获奖情况相关…」唯一对应 API 中文名「获奖情况」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "get_company_attribute",
+      "api_code": "C004",
+      "api_name": "企业属性",
+      "api_paths": [
+        {
+          "path": "/company/attribute",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业属性相关…」唯一对应 API 中文名「企业属性」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "industry_classification",
+      "api_code": "C007",
+      "api_name": "行业分类",
+      "api_paths": [
+        {
+          "path": "/company/industry-classification",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取行业分类相关…」唯一对应 API 中文名「行业分类」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "intellectual_property",
+      "api_code": "C011",
+      "api_name": "知识产权",
+      "api_paths": [
+        {
+          "path": "/company/intellectual-property",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取知识产权相关…」唯一对应 API 中文名「知识产权」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "product_technical_classification",
+      "api_code": "C008",
+      "api_name": "产品技术分类",
+      "api_paths": [
+        {
+          "path": "/company/product-technical-classification",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取产品技术分类相关…」唯一对应 API 中文名「产品技术分类」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "standard_development",
+      "api_code": "C010",
+      "api_name": "标准制定",
+      "api_paths": [
+        {
+          "path": "/company/standard-development",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取标准制定相关…」唯一对应 API 中文名「标准制定」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "technology_label",
+      "api_code": "C005",
+      "api_name": "科技认定",
+      "api_paths": [
+        {
+          "path": "/company/technology-label",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科技认定相关…」唯一对应 API 中文名「科技认定」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "literature-search",
+      "tool": "literature_author_affiliation",
+      "api_code": "L011",
+      "api_name": "文献作者和机构",
+      "api_paths": [
+        {
+          "path": "/literature/author-affiliation",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取文献作者和机构相关…」唯一对应 API 中文名「文献作者和机构」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "literature-search",
+      "tool": "literature_bibliography",
+      "api_code": "L010",
+      "api_name": "文献著录信息",
+      "api_paths": [
+        {
+          "path": "/literature/bibliography",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取文献著录信息相关…」唯一对应 API 中文名「文献著录信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "literature-search",
+      "tool": "literature_citation",
+      "api_code": "L012",
+      "api_name": "文献引用",
+      "api_paths": [
+        {
+          "path": "/literature/citation",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取文献引用相关…」唯一对应 API 中文名「文献引用」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "literature-search",
+      "tool": "literature_journal",
+      "api_code": "L014",
+      "api_name": "文献期刊",
+      "api_paths": [
+        {
+          "path": "/literature/journal",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取文献期刊相关…」唯一对应 API 中文名「文献期刊」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "literature-search",
+      "tool": "search_literature",
+      "api_code": "L001",
+      "api_name": "文献检索",
+      "api_paths": [
+        {
+          "path": "/search/literature/query-search",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-risk",
+      "tool": "modeling_get_tech_eval_backtracking",
+      "api_code": "C026",
+      "api_name": "科创企业回溯（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-evaluation-indicators-backtracking-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业回溯（全球）相关…」唯一对应 API 中文名「科创企业回溯（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-risk",
+      "tool": "patent_risk_backtracking",
+      "api_code": "C028",
+      "api_name": "企业专利风险预警回溯",
+      "api_paths": [
+        {
+          "path": "/company/enterprise-patent-risk-warning-backtracking",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业专利风险预警回溯相关…」唯一对应 API 中文名「企业专利风险预警回溯」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "acquisition_get_group_tech_eval",
+      "api_code": "C025",
+      "api_name": "科创企业集团穿透（全球）",
+      "api_paths": [
+        {
+          "path": "/company/global-company-group-technology-evaluation-indicators",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业集团穿透（全球）相关…」唯一对应 API 中文名「科创企业集团穿透（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "acquisition_get_tech_eval_indicators",
+      "api_code": "C024",
+      "api_name": "科创企业评估指标（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-evaluation-indicators-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业评估指标（全球）相关…」唯一对应 API 中文名「科创企业评估指标（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "company_financing",
+      "api_code": "C013",
+      "api_name": "融资信息",
+      "api_paths": [
+        {
+          "path": "/company/financing-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取融资信息相关…」唯一对应 API 中文名「融资信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "company_industry",
+      "api_code": "C007",
+      "api_name": "行业分类",
+      "api_paths": [
+        {
+          "path": "/company/industry-classification",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取行业分类相关…」唯一对应 API 中文名「行业分类」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "company_tech_label",
+      "api_code": "C005",
+      "api_name": "科技认定",
+      "api_paths": [
+        {
+          "path": "/company/technology-label",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科技认定相关…」唯一对应 API 中文名「科技认定」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "economic_indicators",
+      "api_code": "P040",
+      "api_name": "经济指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/economic_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取经济指标相关…」唯一对应 API 中文名「经济指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "legal_indicators",
+      "api_code": "P037",
+      "api_name": "法律指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/legal_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取法律指标相关…」唯一对应 API 中文名「法律指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "market_indicators",
+      "api_code": "P038",
+      "api_name": "市场指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/market_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取市场指标相关…」唯一对应 API 中文名「市场指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "patent_risk_warning",
+      "api_code": "C027",
+      "api_name": "企业专利风险预警",
+      "api_paths": [
+        {
+          "path": "/company/enterprise-patent-risk-warning",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业专利风险预警相关…」唯一对应 API 中文名「企业专利风险预警」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "patent_valuation",
+      "api_code": "P035",
+      "api_name": "专利价值",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/patent_valuation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利价值相关…」唯一对应 API 中文名「专利价值」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "strategic_indicators",
+      "api_code": "P039",
+      "api_name": "战略指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/strategic_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取战略指标相关…」唯一对应 API 中文名「战略指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "tech-diligence",
+      "tool": "tech_indicators",
+      "api_code": "P036",
+      "api_name": "技术指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/technology_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取技术指标相关…」唯一对应 API 中文名「技术指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_legal_status",
+      "api_code": "P013",
+      "api_name": "法律状态",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/legal-status",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取法律状态相关…」唯一对应 API 中文名「法律状态」",
+      "legacy_ref": "P013/P041",
+      "needs_review": true
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "technology_qualification",
+      "api_code": "C014",
+      "api_name": "科技资质",
+      "api_paths": [
+        {
+          "path": "/company/technology-qualification",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科技资质相关…」唯一对应 API 中文名「科技资质」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "standard_information",
+      "api_code": "C020",
+      "api_name": "标准信息",
+      "api_paths": [
+        {
+          "path": "/company/standard-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取标准信息相关…」唯一对应 API 中文名「标准信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "shareholder_information",
+      "api_code": "C003",
+      "api_name": "股东信息",
+      "api_paths": [
+        {
+          "path": "/company/shareholder-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取股东信息相关…」唯一对应 API 中文名「股东信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "registration_information",
+      "api_code": "C001",
+      "api_name": "工商信息",
+      "api_paths": [
+        {
+          "path": "/company/registration-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取工商信息相关…」唯一对应 API 中文名「工商信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "qualification_certificate",
+      "api_code": "C021",
+      "api_name": "资质证书",
+      "api_paths": [
+        {
+          "path": "/company/qualification-certificate",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取资质证书相关…」唯一对应 API 中文名「资质证书」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_valuation",
+      "api_code": "P035",
+      "api_name": "专利价值",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/patent_valuation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利价值相关…」唯一对应 API 中文名「专利价值」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_transfer_data",
+      "api_code": "P029",
+      "api_name": "专利转移",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/transfer-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利转移相关…」唯一对应 API 中文名「专利转移」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_simple_bibliography",
+      "api_code": "P011",
+      "api_name": "简单著录项",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/simple-bibliography",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取简单著录项相关…」唯一对应 API 中文名「简单著录项」",
+      "legacy_ref": "P012",
+      "needs_review": true
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_reexamination",
+      "api_code": "P027",
+      "api_name": "复审无效",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/re-examination-and-invalidation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取复审无效相关…」唯一对应 API 中文名「复审无效」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_pledge_data",
+      "api_code": "P030",
+      "api_name": "专利质押",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/pledge-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利质押相关…」唯一对应 API 中文名「专利质押」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_license_data",
+      "api_code": "P028",
+      "api_name": "专利许可",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/license-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利许可相关…」唯一对应 API 中文名「专利许可」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "awards_information",
+      "api_code": "C015",
+      "api_name": "获奖信息",
+      "api_paths": [
+        {
+          "path": "/company/awards-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取获奖信息相关…」唯一对应 API 中文名「获奖信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "outbound_investment",
+      "api_code": "C002",
+      "api_name": "对外投资",
+      "api_paths": [
+        {
+          "path": "/company/outbound-investment",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取对外投资相关…」唯一对应 API 中文名「对外投资」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "listing_information",
+      "api_code": "C018",
+      "api_name": "上市信息",
+      "api_paths": [
+        {
+          "path": "/company/listing-Information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取上市信息相关…」唯一对应 API 中文名「上市信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "ipo_process",
+      "api_code": "C019",
+      "api_name": "IPO进程",
+      "api_paths": [
+        {
+          "path": "/company/ipo-process",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取IPO进程相关…」唯一对应 API 中文名「IPO进程」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "industry_classification",
+      "api_code": "C007",
+      "api_name": "行业分类",
+      "api_paths": [
+        {
+          "path": "/company/industry-classification",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取行业分类相关…」唯一对应 API 中文名「行业分类」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "get_company_tech_eval_indicators_global",
+      "api_code": "C024",
+      "api_name": "科创企业评估指标（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-evaluation-indicators-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业评估指标（全球）相关…」唯一对应 API 中文名「科创企业评估指标（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "get_company_tech_eval_backtrack_global",
+      "api_code": "C026",
+      "api_name": "科创企业回溯（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-evaluation-indicators-backtracking-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业回溯（全球）相关…」唯一对应 API 中文名「科创企业回溯（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "get_company_attribute",
+      "api_code": "C004",
+      "api_name": "企业属性",
+      "api_paths": [
+        {
+          "path": "/company/attribute",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业属性相关…」唯一对应 API 中文名「企业属性」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "financing_information",
+      "api_code": "C013",
+      "api_name": "融资信息",
+      "api_paths": [
+        {
+          "path": "/company/financing-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取融资信息相关…」唯一对应 API 中文名「融资信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "core_member",
+      "api_code": "C017",
+      "api_name": "核心团队",
+      "api_paths": [
+        {
+          "path": "/company/core-member",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取核心团队相关…」唯一对应 API 中文名「核心团队」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "awards_information",
+      "api_code": "C015",
+      "api_name": "获奖信息",
+      "api_paths": [
+        {
+          "path": "/company/awards-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取获奖信息相关…」唯一对应 API 中文名「获奖信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "core_member",
+      "api_code": "C017",
+      "api_name": "核心团队",
+      "api_paths": [
+        {
+          "path": "/company/core-member",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取核心团队相关…」唯一对应 API 中文名「核心团队」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "financing_information",
+      "api_code": "C013",
+      "api_name": "融资信息",
+      "api_paths": [
+        {
+          "path": "/company/financing-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取融资信息相关…」唯一对应 API 中文名「融资信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "investment_information",
+      "api_code": "C038",
+      "api_name": "投资信息",
+      "api_paths": [
+        {
+          "path": "/company/investment-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取投资信息相关…」唯一对应 API 中文名「投资信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "ipo_process",
+      "api_code": "C019",
+      "api_name": "IPO进程",
+      "api_paths": [
+        {
+          "path": "/company/ipo-process",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取IPO进程相关…」唯一对应 API 中文名「IPO进程」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "listing_information",
+      "api_code": "C018",
+      "api_name": "上市信息",
+      "api_paths": [
+        {
+          "path": "/company/listing-Information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取上市信息相关…」唯一对应 API 中文名「上市信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "main_member",
+      "api_code": "C016",
+      "api_name": "主要人员",
+      "api_paths": [
+        {
+          "path": "/company/main-member",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取主要人员相关…」唯一对应 API 中文名「主要人员」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "outbound_investment",
+      "api_code": "C002",
+      "api_name": "对外投资",
+      "api_paths": [
+        {
+          "path": "/company/outbound-investment",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取对外投资相关…」唯一对应 API 中文名「对外投资」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "qualification_certificate",
+      "api_code": "C021",
+      "api_name": "资质证书",
+      "api_paths": [
+        {
+          "path": "/company/qualification-certificate",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取资质证书相关…」唯一对应 API 中文名「资质证书」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "registration_information",
+      "api_code": "C001",
+      "api_name": "工商信息",
+      "api_paths": [
+        {
+          "path": "/company/registration-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取工商信息相关…」唯一对应 API 中文名「工商信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "search_company",
+      "api_code": "C037",
+      "api_name": "企业搜索接口",
+      "api_paths": [
+        {
+          "path": "/company/search",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "shareholder_information",
+      "api_code": "C003",
+      "api_name": "股东信息",
+      "api_paths": [
+        {
+          "path": "/company/shareholder-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取股东信息相关…」唯一对应 API 中文名「股东信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "standard_information",
+      "api_code": "C020",
+      "api_name": "标准信息",
+      "api_paths": [
+        {
+          "path": "/company/standard-information",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取标准信息相关…」唯一对应 API 中文名「标准信息」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-credit",
+      "tool": "technology_qualification",
+      "api_code": "C014",
+      "api_name": "科技资质",
+      "api_paths": [
+        {
+          "path": "/company/technology-qualification",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科技资质相关…」唯一对应 API 中文名「科技资质」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "global_company_group_eval",
+      "api_code": "C025",
+      "api_name": "科创企业集团穿透（全球）",
+      "api_paths": [
+        {
+          "path": "/company/global-company-group-technology-evaluation-indicators",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业集团穿透（全球）相关…」唯一对应 API 中文名「科创企业集团穿透（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "patent_risk_warning",
+      "api_code": "C027",
+      "api_name": "企业专利风险预警",
+      "api_paths": [
+        {
+          "path": "/company/enterprise-patent-risk-warning",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业专利风险预警相关…」唯一对应 API 中文名「企业专利风险预警」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "patent_risk_warning_backtrack",
+      "api_code": "C028",
+      "api_name": "企业专利风险预警回溯",
+      "api_paths": [
+        {
+          "path": "/company/enterprise-patent-risk-warning-backtracking",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业专利风险预警回溯相关…」唯一对应 API 中文名「企业专利风险预警回溯」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "technology_evaluation_global",
+      "api_code": "C022",
+      "api_name": "科创企业评估（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-evaluation-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业评估（全球）相关…」唯一对应 API 中文名「科创企业评估（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "technology_indicators_global",
+      "api_code": "C023",
+      "api_name": "科创企业指标（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-indicators-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业指标（全球）相关…」唯一对应 API 中文名「科创企业指标（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "tech_eval_backtrack_global",
+      "api_code": "C026",
+      "api_name": "科创企业回溯（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-evaluation-indicators-backtracking-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业回溯（全球）相关…」唯一对应 API 中文名「科创企业回溯（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "tech_eval_indicators_global",
+      "api_code": "C024",
+      "api_name": "科创企业评估指标（全球）",
+      "api_paths": [
+        {
+          "path": "/company/technology-evaluation-indicators-global",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业评估指标（全球）相关…」唯一对应 API 中文名「科创企业评估指标（全球）」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-risk",
+      "tool": "enterprise_indicators",
+      "api_code": "DP002",
+      "api_name": "科创企业指标",
+      "api_paths": [
+        {
+          "path": "/innovation/company_valuation_indicators",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业指标相关…」唯一对应 API 中文名「科创企业指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-risk",
+      "tool": "enterprise_risk_warning",
+      "api_code": "DP003",
+      "api_name": "科创企业风险预警",
+      "api_paths": [
+        {
+          "path": "/innovation/company_warning",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业风险预警相关…」唯一对应 API 中文名「科创企业风险预警」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-risk",
+      "tool": "enterprise_valuation",
+      "api_code": "DP001",
+      "api_name": "科创企业评估",
+      "api_paths": [
+        {
+          "path": "/innovation/company_valuation",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业评估相关…」唯一对应 API 中文名「科创企业评估」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-risk",
+      "tool": "enterprise_valuation_full",
+      "api_code": "DP004",
+      "api_name": "科创企业评估指标&风险预警",
+      "api_paths": [
+        {
+          "path": "/innovation/estimate/company-index-warning",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业评估指标&风险预警相关…」唯一对应 API 中文名「科创企业评估指标&风险预警」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "company-risk",
+      "tool": "enterprise_valuation_with_indicators",
+      "api_code": "DP005",
+      "api_name": "科创企业评估指标",
+      "api_paths": [
+        {
+          "path": "/innovation/estimate/company-index",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取科创企业评估指标相关…」唯一对应 API 中文名「科创企业评估指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "ip-courses",
+      "tool": "course_courseware",
+      "api_code": "AC03",
+      "api_name": "获取课程的课件",
+      "api_paths": [
+        {
+          "path": "/academy/attach-download",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取获取课程的课件相关…」唯一对应 API 中文名「获取课程的课件」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "ip-courses",
+      "tool": "course_details",
+      "api_code": "AC02",
+      "api_name": "获取具体课程详情",
+      "api_paths": [
+        {
+          "path": "/academy/course-details",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取获取具体课程详情相关…」唯一对应 API 中文名「获取具体课程详情」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "ip-courses",
+      "tool": "course_list",
+      "api_code": "AC01",
+      "api_name": "获取课程列表",
+      "api_paths": [
+        {
+          "path": "/academy/course-list",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "wheel_of_innovation",
+      "api_code": "A003",
+      "api_name": "旭日图",
+      "api_paths": [
+        {
+          "path": "/insights/wheel-of-innovation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取旭日图相关…」唯一对应 API 中文名「旭日图」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "technology_effect_distribution",
+      "api_code": "A012",
+      "api_name": "技术功效短语分布",
+      "api_paths": [
+        {
+          "path": "/insights/technology-effect-Distribution",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "most_cited",
+      "api_code": "A005",
+      "api_name": "被引用最多的专利",
+      "api_paths": [
+        {
+          "path": "/insights/most-cited",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取被引用最多的专利相关…」唯一对应 API 中文名「被引用最多的专利」",
+      "legacy_ref": "P015",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "most_asserted",
+      "api_code": "A009",
+      "api_name": "最多诉讼专利",
+      "api_paths": [
+        {
+          "path": "/insights/most-asserted",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取最多诉讼专利相关…」唯一对应 API 中文名「最多诉讼专利」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_tech_field_word_cloud",
+      "api_code": "A202",
+      "api_name": "技术领域词云",
+      "api_paths": [
+        {
+          "path": "/search/company/technology-field-word-cloud",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_tech_effect_dist",
+      "api_code": "A201",
+      "api_name": "技术效果分布",
+      "api_paths": [
+        {
+          "path": "/search/company/technology-effect-Distribution",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_portfolio_overview",
+      "api_code": "A105",
+      "api_name": "企业专利总申请布局",
+      "api_paths": [
+        {
+          "path": "/insights-company/patent-portfolio-overview",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业专利总申请布局相关…」唯一对应 API 中文名「企业专利总申请布局」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_most_cited_latest",
+      "api_code": "A106",
+      "api_name": "企业被引用最多的专利",
+      "api_paths": [
+        {
+          "path": "/insights-company/most-cited-latest",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业被引用最多的专利相关…」唯一对应 API 中文名「企业被引用最多的专利」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_most_cited",
+      "api_code": "A107",
+      "api_name": "最多引用该企业专利的公司",
+      "api_paths": [
+        {
+          "path": "/insights-company/most-cited",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取最多引用该企业专利的公司相关…」唯一对应 API 中文名「最多引用该企业专利的公司」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_acquisition_divestiture",
+      "api_code": "A110",
+      "api_name": "企业专利转入转出",
+      "api_paths": [
+        {
+          "path": "/insights-company/acquisition-divestiture",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取企业专利转入转出相关…」唯一对应 API 中文名「企业专利转入转出」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "ability_indicators",
+      "api_code": "P051",
+      "api_name": "专利申请前评估-可专利性",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/patent_ability",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "economic_indicators",
+      "api_code": "P040",
+      "api_name": "经济指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/economic_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取经济指标相关…」唯一对应 API 中文名「经济指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "legal_indicators",
+      "api_code": "P037",
+      "api_name": "法律指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/legal_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取法律指标相关…」唯一对应 API 中文名「法律指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "market_indicators",
+      "api_code": "P038",
+      "api_name": "市场指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/market_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取市场指标相关…」唯一对应 API 中文名「市场指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "market_prospect_indicators",
+      "api_code": "P052",
+      "api_name": "专利申请前评估-市场前景",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/market_prospect",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "operation_situation_indicators",
+      "api_code": "P053",
+      "api_name": "专利申请前评估-运营情况",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/operation_situation",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "strategic_indicators",
+      "api_code": "P039",
+      "api_name": "战略指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/strategic_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取战略指标相关…」唯一对应 API 中文名「战略指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "technology_indicators",
+      "api_code": "P036",
+      "api_name": "技术指标",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/technology_indicators",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取技术指标相关…」唯一对应 API 中文名「技术指标」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "tech_innovation_indicators",
+      "api_code": "P050",
+      "api_name": "专利申请前评估-技术创新性",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/tech_innovation",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-value",
+      "tool": "valuation",
+      "api_code": "P035",
+      "api_name": "专利价值",
+      "api_paths": [
+        {
+          "path": "/patent-valuation-data/patent_valuation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利价值相关…」唯一对应 API 中文名「专利价值」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "classification_description",
+      "api_code": "P066",
+      "api_name": "专利分类号说明",
+      "api_paths": [
+        {
+          "path": "/high-value-data/patent-classification-description",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利分类号说明相关…」唯一对应 API 中文名「专利分类号说明」",
+      "legacy_ref": "P071",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "enhanced_data",
+      "api_code": "P064",
+      "api_name": "专利增值数据",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/patent_enhanced_data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利增值数据相关…」唯一对应 API 中文名「专利增值数据」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "intelligent_attached_image",
+      "api_code": "P042",
+      "api_name": "全文附图",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/fulltext-image",
+          "method": "POST"
+        },
+        {
+          "path": "/basic-patent-data/fulltext-inline-image",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": true,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "seic_classification",
+      "api_code": "P022",
+      "api_name": "战略新兴产业分类",
+      "api_paths": [
+        {
+          "path": "/high-value-data/seic-classification",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取战略新兴产业分类相关…」唯一对应 API 中文名「战略新兴产业分类」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "technology_topic",
+      "api_code": "P024",
+      "api_name": "技术主题分类",
+      "api_paths": [
+        {
+          "path": "/high-value-data/technology-topic",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取技术主题分类相关…」唯一对应 API 中文名「技术主题分类」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "tech_problem_benefit_summary",
+      "api_code": "P025",
+      "api_name": "专利技术三要素",
+      "api_paths": [
+        {
+          "path": "/high-value-data/tech-problem-and-benefit-summary",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利技术三要素相关…」唯一对应 API 中文名「专利技术三要素」",
+      "legacy_ref": "AI31",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "search_patents_with_detail",
+      "api_code": "D009",
+      "api_name": "专利检索及详情",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent-detail",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": "P003",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "search_patents_v3",
+      "api_code": "D005",
+      "api_name": "专利检索",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent/v3",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": "P002",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "search_patents_statistics",
+      "api_code": "D010",
+      "api_name": "专利统计",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-facet",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": "P001",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "search_patents_facet",
+      "api_code": "D006",
+      "api_name": "专利检索统计",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent-facet",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "pdf",
+      "api_code": "P020",
+      "api_name": "PDF全文",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/pdf-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "list",
+      "api_code": "D113",
+      "api_name": "专利列表",
+      "api_paths": [
+        {
+          "path": "/shhgy/reportdata/patent-list",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "info",
+      "api_code": "D114",
+      "api_name": "专利字段详情（仅包含大文本）",
+      "api_paths": [
+        {
+          "path": "/shhgy/reportdata/patent-info",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_param_exclusive",
+      "confidence": "medium",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "detail_text",
+      "api_code": "D201",
+      "api_name": "专利详情文本",
+      "api_paths": [
+        {
+          "path": "/jdf/patent_detail_text",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利详情文本相关…」唯一对应 API 中文名「专利详情文本」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "detail_aggregation",
+      "api_code": "D301",
+      "api_name": "专利详情聚合",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/patent-detail-aggregation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利详情聚合相关…」唯一对应 API 中文名「专利详情聚合」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "detail",
+      "api_code": "P012",
+      "api_name": "著录项目",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/bibliography",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "cooperation_applicant_analysis",
+      "api_code": "D105",
+      "api_name": "合作申请分析",
+      "api_paths": [
+        {
+          "path": "/shhgy/reportdata/cooperation-applicant-analysis",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取合作申请分析相关…」唯一对应 API 中文名「合作申请分析」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "applicant_technology_analysis",
+      "api_code": "D103",
+      "api_name": "主要申请人技术分析",
+      "api_paths": [
+        {
+          "path": "/shhgy/reportdata/applicant-technology-analysis",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取主要申请人技术分析相关…」唯一对应 API 中文名「主要申请人技术分析」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "abstract_image",
+      "api_code": "P021",
+      "api_name": "摘要附图",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/abstract-image",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取摘要附图相关…」唯一对应 API 中文名「摘要附图」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "abstract_translated",
+      "api_code": "P043",
+      "api_name": "摘要翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/abstract-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取摘要翻译相关…」唯一对应 API 中文名「摘要翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "bibliography",
+      "api_code": "P012",
+      "api_name": "著录项目",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/bibliography",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取著录项目相关…」唯一对应 API 中文名「著录项目」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "claims",
+      "api_code": "P018",
+      "api_name": "权利要求",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/claim-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取权利要求相关…」唯一对应 API 中文名「权利要求」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "claim_translated",
+      "api_code": "P044",
+      "api_name": "权利要求翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/claim-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取权利要求翻译相关…」唯一对应 API 中文名「权利要求翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "description",
+      "api_code": "P019",
+      "api_name": "说明书",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/description-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取说明书相关…」唯一对应 API 中文名「说明书」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "description_translated",
+      "api_code": "P045",
+      "api_name": "说明书翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/description-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取说明书翻译相关…」唯一对应 API 中文名「说明书翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "family",
+      "api_code": "P014",
+      "api_name": "专利家族",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/patent-family",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "intelligent_image",
+      "api_code": "P042",
+      "api_name": "全文附图",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/fulltext-image",
+          "method": "POST"
+        },
+        {
+          "path": "/basic-patent-data/fulltext-inline-image",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": true,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "legal_status",
+      "api_code": "P041",
+      "api_name": "简单法律状态",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/simple-legal-status",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取简单法律状态相关…」唯一对应 API 中文名「简单法律状态」",
+      "legacy_ref": "P013/P041",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "search_patents",
+      "api_code": "P002",
+      "api_name": "检索式检索专利",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent/v2",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "tech_summary",
+      "api_code": "P025",
+      "api_name": "专利技术三要素",
+      "api_paths": [
+        {
+          "path": "/high-value-data/tech-problem-and-benefit-summary",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利技术三要素相关…」唯一对应 API 中文名「专利技术三要素」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "award_data",
+      "api_code": "P032",
+      "api_name": "专利奖",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/award-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利奖相关…」唯一对应 API 中文名「专利奖」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "customs_data",
+      "api_code": "P031",
+      "api_name": "海关备案",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/customs-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取海关备案相关…」唯一对应 API 中文名「海关备案」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "fee_info",
+      "api_code": "P047",
+      "api_name": "专利缴费信息请求",
+      "api_paths": [
+        {
+          "path": "/fee/apno_input",
+          "method": "POST"
+        },
+        {
+          "path": "/fee/get_fee",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": true,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利缴费信息请求相关…」唯一对应 API 中文名「专利缴费信息请求」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "get_sep_data",
+      "api_code": "P033",
+      "api_name": "标准必要专利(SEP)",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/sep-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取标准必要专利(SEP)相关…」唯一对应 API 中文名「标准必要专利(SEP)」",
+      "legacy_ref": "T001",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "legal_data",
+      "api_code": "P026",
+      "api_name": "法律详情",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/legal-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取法律详情相关…」唯一对应 API 中文名「法律详情」",
+      "legacy_ref": "P013",
+      "needs_review": true
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "license_data",
+      "api_code": "P028",
+      "api_name": "专利许可",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/license-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利许可相关…」唯一对应 API 中文名「专利许可」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "litigation_data",
+      "api_code": "P034",
+      "api_name": "诉讼数据",
+      "api_paths": [
+        {
+          "path": "/high-value-data/litigation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取诉讼数据相关…」唯一对应 API 中文名「诉讼数据」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "overseas_patent_documents",
+      "api_code": "P048",
+      "api_name": "海外专利审查文件",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/overseas-patent-documents",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取海外专利审查文件相关…」唯一对应 API 中文名「海外专利审查文件」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "pledge_data",
+      "api_code": "P030",
+      "api_name": "专利质押",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/pledge-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利质押相关…」唯一对应 API 中文名「专利质押」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "re_examination_data",
+      "api_code": "P027",
+      "api_name": "复审无效",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/re-examination-and-invalidation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取复审无效相关…」唯一对应 API 中文名「复审无效」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "transfer_data",
+      "api_code": "P029",
+      "api_name": "专利转移",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/transfer-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利转移相关…」唯一对应 API 中文名「专利转移」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "unified_patent_court_status",
+      "api_code": "P046",
+      "api_name": "欧洲统一法院状态",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/status-of-unified-patent-court",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取欧洲统一法院状态相关…」唯一对应 API 中文名「欧洲统一法院状态」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "transfer_data",
+      "api_code": "P029",
+      "api_name": "专利转移",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/transfer-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利转移相关…」唯一对应 API 中文名「专利转移」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "reexamination_invalidation",
+      "api_code": "P027",
+      "api_name": "复审无效",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/re-examination-and-invalidation",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取复审无效相关…」唯一对应 API 中文名「复审无效」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "pdf",
+      "api_code": "P020",
+      "api_name": "PDF全文",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/pdf-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取PDF全文相关…」唯一对应 API 中文名「PDF全文」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "license_data",
+      "api_code": "P028",
+      "api_name": "专利许可",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/license-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利许可相关…」唯一对应 API 中文名「专利许可」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "legal_data",
+      "api_code": "P026",
+      "api_name": "法律详情",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/legal-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取法律详情相关…」唯一对应 API 中文名「法律详情」",
+      "legacy_ref": "P013",
+      "needs_review": true
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "fulltext_image",
+      "api_code": "P042",
+      "api_name": "全文附图",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/fulltext-image",
+          "method": "POST"
+        },
+        {
+          "path": "/basic-patent-data/fulltext-inline-image",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": true,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取全文附图相关…」唯一对应 API 中文名「全文附图」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "description_translated",
+      "api_code": "P045",
+      "api_name": "说明书翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/description-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取说明书翻译相关…」唯一对应 API 中文名「说明书翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "customs_data",
+      "api_code": "P031",
+      "api_name": "海关备案",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/customs-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取海关备案相关…」唯一对应 API 中文名「海关备案」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "claim_translated",
+      "api_code": "P044",
+      "api_name": "权利要求翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/claim-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取权利要求翻译相关…」唯一对应 API 中文名「权利要求翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "award_data",
+      "api_code": "P032",
+      "api_name": "专利奖",
+      "api_paths": [
+        {
+          "path": "/advanced-patent-data/award-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取专利奖相关…」唯一对应 API 中文名「专利奖」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "abstract_translated",
+      "api_code": "P043",
+      "api_name": "摘要翻译",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/abstract-data-translated",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取摘要翻译相关…」唯一对应 API 中文名「摘要翻译」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "family",
+      "api_code": "P014",
+      "api_name": "专利家族",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/patent-family",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "abstract_image",
+      "api_code": "P021",
+      "api_name": "摘要附图",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/abstract-image",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取摘要附图相关…」唯一对应 API 中文名「摘要附图」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "description",
+      "api_code": "P019",
+      "api_name": "说明书",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/description-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取说明书相关…」唯一对应 API 中文名「说明书」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "get_patent_legal_status",
+      "api_code": "P041",
+      "api_name": "简单法律状态",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/simple-legal-status",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取简单法律状态相关…」唯一对应 API 中文名「简单法律状态」",
+      "legacy_ref": "P013/P041",
+      "needs_review": true
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "claims",
+      "api_code": "P018",
+      "api_name": "权利要求",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/claim-data",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取权利要求相关…」唯一对应 API 中文名「权利要求」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "bibliography",
+      "api_code": "P012",
+      "api_name": "著录项目",
+      "api_paths": [
+        {
+          "path": "/basic-patent-data/bibliography",
+          "method": "GET"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "inferred_official_name",
+      "confidence": "high",
+      "evidence": "官方 tool 描述「用于获取著录项目相关…」唯一对应 API 中文名「著录项目」",
+      "legacy_ref": null,
+      "needs_review": false
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "search_patents",
+      "api_code": "P002",
+      "api_name": "检索式检索专利",
+      "api_paths": [
+        {
+          "path": "/search/patent/query-search-patent/v2",
+          "method": "POST"
+        }
+      ],
+      "ambiguous_code": false,
+      "status": "legacy_unverified",
+      "confidence": "low",
+      "evidence": "沿用上一版人工标注，未获本轮证据支持，待实测复核",
+      "legacy_ref": null,
+      "needs_review": true
+    }
+  ],
+  "unresolved": [
+    {
+      "mcp": "drafting",
+      "tool": "draft_protection_points",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "project_create",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-10",
+        "AI66-6",
+        "B064-1"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "plan_drawing_description",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "label_figure_from_draft",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI62-1",
+        "C005",
+        "AI66-7"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "label_figure_from_description",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI62-1",
+        "P019",
+        "C005"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "generate_figure_from_draft",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI62-1",
+        "AI32-2",
+        "AI37-4"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "generate_figure_from_description",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI62-1",
+        "P019",
+        "AI32-2"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "draft_title",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "draft_summary",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "attachment_complete",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "L017",
+        "P012",
+        "T011"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "draft_embodiments",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "draft_claim_tree",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "draft_claim_set",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "draft_background",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "build_claims_document",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "attachment_prepare",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI37-3",
+        "T011",
+        "AI37-4"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "attachment_list",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI59-2",
+        "T012",
+        "L017"
+      ]
+    },
+    {
+      "mcp": "drafting",
+      "tool": "attachment_detail",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P067",
+        "B067-2",
+        "L017"
+      ]
+    },
+    {
+      "mcp": "materials-search-mcp",
+      "tool": "fetch_document_material_evidence",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P102",
+        "P101",
+        "P103"
+      ]
+    },
+    {
+      "mcp": "materials-search-mcp",
+      "tool": "search_material_evidence",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "P056"
+      ]
+    },
+    {
+      "mcp": "mat-cosmetics-regulatory",
+      "tool": "search_ingredient_regulation",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C006",
+        "B056",
+        "B064-3"
+      ]
+    },
+    {
+      "mcp": "company-intelligence-mcp",
+      "tool": "analyze_company_competitiveness",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AC02",
+        "AC03",
+        "AC01"
+      ]
+    },
+    {
+      "mcp": "company-intelligence-mcp",
+      "tool": "analyze_innovation_capability",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AC02",
+        "AC03",
+        "AC01"
+      ]
+    },
+    {
+      "mcp": "company-intelligence-mcp",
+      "tool": "generate_innovation_report",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AC02",
+        "AC03",
+        "AC01"
+      ]
+    },
+    {
+      "mcp": "company-intelligence-mcp",
+      "tool": "get_innovation_overview",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AC02",
+        "AC03",
+        "AC01"
+      ]
+    },
+    {
+      "mcp": "company-intelligence-mcp",
+      "tool": "get_risk_information",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AC02",
+        "AC03",
+        "AC01"
+      ]
+    },
+    {
+      "mcp": "company-intelligence-mcp",
+      "tool": "search_company",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C004",
+        "C006",
+        "C013"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_cc_analysis",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-5",
+        "AI66-7",
+        "AI40-2"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_fetch_missed_patent_details",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P055",
+        "AI66-7",
+        "AI66-4"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_patent_screening",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P055",
+        "AI66-5",
+        "AI66-7"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_report_generation",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-7",
+        "AI66-5",
+        "AI66-4"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_diagnose_missed",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-7",
+        "AI66-4",
+        "AI66-5"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_estimate_recall",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-7",
+        "AI66-4",
+        "AI66-5"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_feature_extraction",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-2",
+        "AI66-7",
+        "AI66-4"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_keyword_expansion",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-5",
+        "AI66-4",
+        "AI66-7"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_proposal_refine",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-7",
+        "AI66-4",
+        "AI66-5"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_query_generation",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-7",
+        "AI66-4",
+        "AI66-5"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_sample_set_init",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-1",
+        "AI66-5",
+        "AI66-7"
+      ]
+    },
+    {
+      "mcp": "fto-search",
+      "tool": "fto_validate_and_fix_query",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-7",
+        "AI66-4",
+        "AI66-5"
+      ]
+    },
+    {
+      "mcp": "s-telecom-mcp-sep",
+      "tool": "standard_claim_charting",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI31",
+        "P063",
+        "C046"
+      ]
+    },
+    {
+      "mcp": "patent-analysis",
+      "tool": "mine_patent_text",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI01",
+        "D201",
+        "B072-1"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "automatic_update_and_expansion",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI66-4",
+        "AI35-3"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "edit_annotations",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B064-2",
+        "B062",
+        "B071"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "edit_comments",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P056",
+        "T010"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "edit_custom_fields",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B064-2",
+        "AI34-2",
+        "D114"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "edit_patents",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B002",
+        "B064-2"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "save_patents_to_workspace",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B056-1"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "get_workspace_annotations",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B033",
+        "B036",
+        "B037"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "get_workspace_patents",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B073",
+        "B033",
+        "B036"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "list_workspace_fields",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI34-2"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "list_workspace_folders",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B007",
+        "P101",
+        "C037"
+      ]
+    },
+    {
+      "mcp": "patsnap-workspace",
+      "tool": "list_workspace_spaces",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P072",
+        "P071",
+        "P070"
+      ]
+    },
+    {
+      "mcp": "document-processing",
+      "tool": "translation_docx_status",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "T012",
+        "R001"
+      ]
+    },
+    {
+      "mcp": "document-processing",
+      "tool": "documents_parsing",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": "AI60",
+      "top_candidates": [
+        "L017",
+        "L016",
+        "AI62-1"
+      ]
+    },
+    {
+      "mcp": "patsnap-analytics",
+      "tool": "fetch_patent_lifecycle",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B028",
+        "P035",
+        "P028"
+      ]
+    },
+    {
+      "mcp": "patsnap-ip-searching",
+      "tool": "get_task",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P055",
+        "AI39-2",
+        "B067-2"
+      ]
+    },
+    {
+      "mcp": "patsnap-triz-case-library",
+      "tool": "list_triz_search_terms",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D010",
+        "D006",
+        "P003"
+      ]
+    },
+    {
+      "mcp": "patsnap-triz-case-library",
+      "tool": "search_triz_case",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B073",
+        "B056",
+        "B043"
+      ]
+    },
+    {
+      "mcp": "patsnap-solution-engine",
+      "tool": "fetch_triz_innovation_task_stream",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "R001",
+        "B068-2"
+      ]
+    },
+    {
+      "mcp": "patsnap-solution-engine",
+      "tool": "fetch_triz_reduction_task_stream",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B068-2",
+        "AI32-3"
+      ]
+    },
+    {
+      "mcp": "patsnap-solution-engine",
+      "tool": "fetch_triz_innovation_solution_detail",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "R001",
+        "B068-2"
+      ]
+    },
+    {
+      "mcp": "patsnap-solution-engine",
+      "tool": "fetch_triz_reduction_solution_detail",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B068-2",
+        "AI32-3"
+      ]
+    },
+    {
+      "mcp": "patsnap-solution-engine",
+      "tool": "run_triz_reduction_task",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P055",
+        "AI39-3",
+        "AI39-2"
+      ]
+    },
+    {
+      "mcp": "patsnap-web-search",
+      "tool": "web_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "P056"
+      ]
+    },
+    {
+      "mcp": "s-telecom-mcp-tools",
+      "tool": "fetch_standard_section",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI01",
+        "P081",
+        "B072-1"
+      ]
+    },
+    {
+      "mcp": "s-telecom-mcp-tools",
+      "tool": "fetch_tdocs",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": []
+    },
+    {
+      "mcp": "s-telecom-mcp-tools",
+      "tool": "search_standards",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI01",
+        "M001-1"
+      ]
+    },
+    {
+      "mcp": "s-telecom-mcp-tools",
+      "tool": "search_tdocs",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B002"
+      ]
+    },
+    {
+      "mcp": "target-disease",
+      "tool": "disease_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B050",
+        "B043",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "target-disease",
+      "tool": "epidemiology_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "target-disease",
+      "tool": "target_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B040",
+        "B051",
+        "B041"
+      ]
+    },
+    {
+      "mcp": "scientific-translational-evidence",
+      "tool": "translational_medicine_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B070",
+        "B069",
+        "AI72"
+      ]
+    },
+    {
+      "mcp": "scientific-translational-evidence",
+      "tool": "translational_medicine_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B069",
+        "B011",
+        "B043"
+      ]
+    },
+    {
+      "mcp": "sar-extraction",
+      "tool": "sar_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI103-2",
+        "B072-2",
+        "P055"
+      ]
+    },
+    {
+      "mcp": "sar-extraction",
+      "tool": "sar_submit",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C046",
+        "AI66-8",
+        "P063"
+      ]
+    },
+    {
+      "mcp": "regulatory-guidelines",
+      "tool": "clinical_guideline_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "regulatory-guidelines",
+      "tool": "fda_label_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "drug-asset",
+      "tool": "adc_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B033",
+        "B036",
+        "B037"
+      ]
+    },
+    {
+      "mcp": "drug-asset",
+      "tool": "drug_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B007",
+        "B045",
+        "B018"
+      ]
+    },
+    {
+      "mcp": "drug-asset",
+      "tool": "drug_milestone_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B018",
+        "B019",
+        "B047"
+      ]
+    },
+    {
+      "mcp": "drug-asset",
+      "tool": "drug_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B007",
+        "B057",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "current-awareness",
+      "tool": "news_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B031",
+        "B043",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "current-awareness",
+      "tool": "news_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B043",
+        "B011",
+        "B007"
+      ]
+    },
+    {
+      "mcp": "company-deal-intelligence",
+      "tool": "drug_deal_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B039",
+        "B045",
+        "B007"
+      ]
+    },
+    {
+      "mcp": "company-deal-intelligence",
+      "tool": "drug_deal_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B045",
+        "B007",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "company-deal-intelligence",
+      "tool": "financial_report_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "company-deal-intelligence",
+      "tool": "organization_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B052",
+        "B043",
+        "B035"
+      ]
+    },
+    {
+      "mcp": "company-deal-intelligence",
+      "tool": "organization_pipeline_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B033",
+        "B037",
+        "B038"
+      ]
+    },
+    {
+      "mcp": "clinical-trials",
+      "tool": "clinical_trial_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B022",
+        "B027"
+      ]
+    },
+    {
+      "mcp": "clinical-trials",
+      "tool": "clinical_trial_result_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B022",
+        "B027"
+      ]
+    },
+    {
+      "mcp": "clinical-trials",
+      "tool": "clinical_trial_result_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B044",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "clinical-trials",
+      "tool": "clinical_trial_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B022",
+        "B007"
+      ]
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_lite_paper_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-8",
+        "AI35-6",
+        "AI35-2"
+      ]
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_lite_website_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-8",
+        "AI35-6",
+        "AI35-2"
+      ]
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_review_with_suggestions",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-8",
+        "AI35-2",
+        "AI35-4"
+      ]
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_feature_comparison",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-4",
+        "AI35-8",
+        "AI66-2"
+      ]
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_lite_get",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-8",
+        "AI35-11",
+        "AI35-6"
+      ]
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_lite_submit",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-8",
+        "AI35-6",
+        "AI35-4"
+      ]
+    },
+    {
+      "mcp": "novelty-search-lite",
+      "tool": "novelty_summary",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI35-8",
+        "AI35-4",
+        "AI35-6"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "fetch_literature",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B030",
+        "L014",
+        "L010"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "fetch_patent",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B028",
+        "P035",
+        "P032"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "fetch_patent_lifecycle",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B028",
+        "P035",
+        "P026"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "build_patent_boolean_query",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "M001-1",
+        "M002-1",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "describe_search_capability",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B002",
+        "D005",
+        "P006"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "get_corptree_hierarchy",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AC01",
+        "B033",
+        "B036"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "get_standard_assignee_name",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B052",
+        "B056-1"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "search_literature",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P081",
+        "L001",
+        "B033"
+      ]
+    },
+    {
+      "mcp": "patsnap-search",
+      "tool": "search_patent",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P081",
+        "P002",
+        "P075"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_evidence_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AC02",
+        "P055",
+        "AI103-2"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_evidence_by_semantic_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI01",
+        "A011",
+        "B064-1"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_evidence_by_entity_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B043",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_entity_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B007",
+        "B057",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_entity_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B043",
+        "B011",
+        "B007"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_news_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B043",
+        "B011",
+        "B007"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_organization_pipeline_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B033",
+        "B037",
+        "B038"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_drug_milestone_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B018",
+        "B019",
+        "B047"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_paper_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B011",
+        "B030",
+        "B042"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_news_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI03",
+        "A011",
+        "B064-1"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_organization_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B052",
+        "B043",
+        "B035"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_fda_label_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_paper_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B011",
+        "B043",
+        "B069"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_paper_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_patent_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "P003",
+        "P056"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_target_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B040",
+        "B051",
+        "B041"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_translational_medicine_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B070",
+        "B069",
+        "AI72"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_translational_medicine_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B069",
+        "B011",
+        "B043"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_web_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "P056"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_news_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B031",
+        "B043",
+        "AI03"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_financial_report_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_clinical_guideline_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_epidemiology_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_drug_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B007",
+        "B057",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_drug_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B007",
+        "B045",
+        "B018"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_drug_deal_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B045",
+        "B007",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_drug_deal_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B039",
+        "B045",
+        "B007"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_disease_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B050",
+        "B043",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_clinical_trial_vector_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "B064-1",
+        "A202"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_clinical_trial_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B022",
+        "B007"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_clinical_trial_result_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B044",
+        "B011"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_clinical_trial_result_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B022",
+        "B027"
+      ]
+    },
+    {
+      "mcp": "pharma-intelligence",
+      "tool": "ls_clinical_trial_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B012",
+        "B022",
+        "B027"
+      ]
+    },
+    {
+      "mcp": "chemical-molecular",
+      "tool": "ls_patent_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C046",
+        "P063",
+        "AI31"
+      ]
+    },
+    {
+      "mcp": "chemical-molecular",
+      "tool": "ls_patent_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P081",
+        "P002",
+        "P075"
+      ]
+    },
+    {
+      "mcp": "chemical-molecular",
+      "tool": "ls_patent_structure_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C046",
+        "P042",
+        "P069"
+      ]
+    },
+    {
+      "mcp": "chemical-molecular",
+      "tool": "ls_structure_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A009",
+        "P047",
+        "A005"
+      ]
+    },
+    {
+      "mcp": "chemical-molecular",
+      "tool": "ls_structure_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B075",
+        "L001",
+        "B033"
+      ]
+    },
+    {
+      "mcp": "chemical-molecular",
+      "tool": "ls_admet_predict",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B068-1",
+        "B068-2"
+      ]
+    },
+    {
+      "mcp": "chemical-molecular",
+      "tool": "ls_chemical_mcs_analyze",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B042",
+        "B001",
+        "B014"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_patent_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C046",
+        "P063",
+        "AI31"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_patent_search",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P081",
+        "P002",
+        "P075"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_sequence_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI29-2",
+        "B068-2"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_patent_sequence_fetch",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C046",
+        "P042",
+        "P069"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_sequence_alignment",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B016",
+        "B004",
+        "B005"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_sequence_fetch",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B016",
+        "B005"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_antibody_antigen_search",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B033",
+        "B036",
+        "B037"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_modification_search_submit",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B051",
+        "B052",
+        "B053"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_sequence_search_check_status",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "T012",
+        "R001"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_sequence_search_get_results",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B068-2",
+        "T012"
+      ]
+    },
+    {
+      "mcp": "biology-modality",
+      "tool": "ls_sequence_search_submit",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "B049",
+        "B050"
+      ]
+    },
+    {
+      "mcp": "intangible-assets",
+      "tool": "enterprise_trademark",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C031",
+        "AC01",
+        "B002"
+      ]
+    },
+    {
+      "mcp": "intangible-assets",
+      "tool": "software_copyright",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C032",
+        "C033",
+        "C021"
+      ]
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "forward_citation",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": "P015",
+      "top_candidates": [
+        "P042"
+      ]
+    },
+    {
+      "mcp": "design-fto-search-mcp",
+      "tool": "get_task_status",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "AI39-2",
+        "P055",
+        "B067-2"
+      ]
+    },
+    {
+      "mcp": "report-gen",
+      "tool": "company_report_create",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "R001",
+        "R001",
+        "C004"
+      ]
+    },
+    {
+      "mcp": "report-gen",
+      "tool": "patent_report_create",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "R002",
+        "R002",
+        "P035"
+      ]
+    },
+    {
+      "mcp": "report-gen",
+      "tool": "pre_patent_evaluation_export",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "R003",
+        "AI32-3",
+        "AI29-2"
+      ]
+    },
+    {
+      "mcp": "tech-collab",
+      "tool": "industry_university_research_region",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C116",
+        "C114",
+        "C115"
+      ]
+    },
+    {
+      "mcp": "company-tags",
+      "tool": "industrial_technology_chain",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C009",
+        "C014",
+        "C005"
+      ]
+    },
+    {
+      "mcp": "patent-risk",
+      "tool": "patent_risk_trend",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C029",
+        "C027",
+        "C112"
+      ]
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "enterprise_trademark",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C031",
+        "AC01",
+        "B002"
+      ]
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "enterprise_software_copyright",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C032",
+        "C033",
+        "C021"
+      ]
+    },
+    {
+      "mcp": "global-tech-eval",
+      "tool": "patent_risk_warning_trend",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "C029",
+        "C027",
+        "DP003"
+      ]
+    },
+    {
+      "mcp": "landscape-projects",
+      "tool": "landscape_facet_detail",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": []
+    },
+    {
+      "mcp": "landscape-projects",
+      "tool": "landscape_facet_list",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": []
+    },
+    {
+      "mcp": "landscape-projects",
+      "tool": "landscape_job_create",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "R001",
+        "R002"
+      ]
+    },
+    {
+      "mcp": "landscape-projects",
+      "tool": "landscape_job_result",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": []
+    },
+    {
+      "mcp": "landscape-projects",
+      "tool": "landscape_job_status",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": [
+        "R001"
+      ]
+    },
+    {
+      "mcp": "landscape-projects",
+      "tool": "landscape_patents",
+      "status": "opaque_workflow",
+      "reason": "工作流/AI 聚合类：入参被 MCP 重写或异步任务化，静态 schema 无法还原调用链，需实测补充",
+      "legacy_ref": null,
+      "top_candidates": []
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_word_cloud",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A101",
+        "A102",
+        "A110"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "word_cloud",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A007",
+        "A003",
+        "A010"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "type_trend",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A011",
+        "P056"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "trends",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A007",
+        "A003",
+        "A009"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "simple_legal_status",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A008",
+        "A007",
+        "A003"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "priority_country",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A004",
+        "A007",
+        "A003"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "portfolio_value",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A010",
+        "A007",
+        "A003"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "inventor_ranking",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A006",
+        "A007",
+        "A003"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "applicant_ranking",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A007",
+        "A006",
+        "A003"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_strategy_map",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A102",
+        "A101",
+        "A110"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_simple_legal_status",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A109",
+        "A101",
+        "A110"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_patent_trends",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A104",
+        "A108",
+        "A110"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_largest_patent_family",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A108",
+        "A104",
+        "A110"
+      ]
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "company_key_technology",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "A103",
+        "A101",
+        "A110"
+      ]
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "application_domain",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P023",
+        "P024",
+        "P073"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "rec_office_year",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D110",
+        "D109",
+        "D105"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "rec_office",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D109",
+        "D110",
+        "D105"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "trend",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D106",
+        "D104",
+        "D105"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "tech_applicant_dist",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D107",
+        "D104",
+        "D102"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "technology_life_cycle",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D101",
+        "D108",
+        "D103"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "technology_constitute",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D108",
+        "D103",
+        "D107"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "refered_rank",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D111",
+        "D112",
+        "D102"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "applicant_rank",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D102",
+        "D104",
+        "D112"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "map_3d",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D115",
+        "D105",
+        "D103"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "famn_rank",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D112",
+        "D102",
+        "D111"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "domain_map",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D115",
+        "D105",
+        "D103"
+      ]
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "applicant_trend",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "D104",
+        "D102",
+        "D106"
+      ]
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "forward_citation",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": "P015",
+      "top_candidates": [
+        "P032"
+      ]
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "pledge_data",
+      "status": "candidate_only",
+      "reason": "仅有弱参数/名称相似信号，不足以判定，需人工确认",
+      "legacy_ref": null,
+      "top_candidates": [
+        "P030"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "mcp": "patent-dispute",
+      "tool": "legal_status",
+      "legacy_ref": "P013/P041",
+      "new_ref": "P041",
+      "new_api_name": "简单法律状态",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取简单法律状态相关…」唯一对应 API 中文名「简单法律状态」"
+    },
+    {
+      "mcp": "patent-dispute",
+      "tool": "legal_data",
+      "legacy_ref": "P013",
+      "new_ref": "P026",
+      "new_api_name": "法律详情",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取法律详情相关…」唯一对应 API 中文名「法律详情」"
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_legal_status",
+      "legacy_ref": "P013/P041",
+      "new_ref": "P013",
+      "new_api_name": "法律状态",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取法律状态相关…」唯一对应 API 中文名「法律状态」"
+    },
+    {
+      "mcp": "company-profile",
+      "tool": "patent_simple_bibliography",
+      "legacy_ref": "P012",
+      "new_ref": "P011",
+      "new_api_name": "简单著录项",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取简单著录项相关…」唯一对应 API 中文名「简单著录项」"
+    },
+    {
+      "mcp": "patent-visual",
+      "tool": "most_cited",
+      "legacy_ref": "P015",
+      "new_ref": "A005",
+      "new_api_name": "被引用最多的专利",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取被引用最多的专利相关…」唯一对应 API 中文名「被引用最多的专利」"
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "classification_description",
+      "legacy_ref": "P071",
+      "new_ref": "P066",
+      "new_api_name": "专利分类号说明",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取专利分类号说明相关…」唯一对应 API 中文名「专利分类号说明」"
+    },
+    {
+      "mcp": "patent-mining",
+      "tool": "tech_problem_benefit_summary",
+      "legacy_ref": "AI31",
+      "new_ref": "P025",
+      "new_api_name": "专利技术三要素",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取专利技术三要素相关…」唯一对应 API 中文名「专利技术三要素」"
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "search_patents_with_detail",
+      "legacy_ref": "P003",
+      "new_ref": "D009",
+      "new_api_name": "专利检索及详情",
+      "status": "inferred_param_exclusive",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致"
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "search_patents_v3",
+      "legacy_ref": "P002",
+      "new_ref": "D005",
+      "new_api_name": "专利检索",
+      "status": "inferred_param_exclusive",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致"
+    },
+    {
+      "mcp": "patent-landscape",
+      "tool": "search_patents_statistics",
+      "legacy_ref": "P001",
+      "new_ref": "D010",
+      "new_api_name": "专利统计",
+      "status": "inferred_param_exclusive",
+      "evidence": "入参名集合在 tool 与 API 两侧双向唯一且完全一致"
+    },
+    {
+      "mcp": "patent-briefing",
+      "tool": "legal_status",
+      "legacy_ref": "P013/P041",
+      "new_ref": "P041",
+      "new_api_name": "简单法律状态",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取简单法律状态相关…」唯一对应 API 中文名「简单法律状态」"
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "get_sep_data",
+      "legacy_ref": "T001",
+      "new_ref": "P033",
+      "new_api_name": "标准必要专利(SEP)",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取标准必要专利(SEP)相关…」唯一对应 API 中文名「标准必要专利(SEP)」"
+    },
+    {
+      "mcp": "patent-status",
+      "tool": "legal_data",
+      "legacy_ref": "P013",
+      "new_ref": "P026",
+      "new_api_name": "法律详情",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取法律详情相关…」唯一对应 API 中文名「法律详情」"
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "legal_data",
+      "legacy_ref": "P013",
+      "new_ref": "P026",
+      "new_api_name": "法律详情",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取法律详情相关…」唯一对应 API 中文名「法律详情」"
+    },
+    {
+      "mcp": "core-patents",
+      "tool": "get_patent_legal_status",
+      "legacy_ref": "P013/P041",
+      "new_ref": "P041",
+      "new_api_name": "简单法律状态",
+      "status": "inferred_official_name",
+      "evidence": "官方 tool 描述「用于获取简单法律状态相关…」唯一对应 API 中文名「简单法律状态」"
+    }
+  ]
+}
