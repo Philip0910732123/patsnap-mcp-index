@@ -1,5 +1,7 @@
 # 智慧芽 MCP 调用示例
 
+> **已归档（v0.6.0 起）**：本文是旧版人工整理，其中的 MCP / API 数量与映射口径已过时，请勿作为事实依据。当前口径（50 MCP / 411 tool / 376 API）以 [index.json](../index.json) 为唯一真相源；人读入口见 [getting-started.md](getting-started.md)，映射复核见 [api-mapping-review.md](api-mapping-review.md)。
+
 > 以下示例展示典型场景的 MCP 工具调用流程。所有示例基于 Eureka runtime 的 `tool_load` → `tool_invoke` 模式。
 
 ---

@@ -1,5 +1,7 @@
 # 智慧芽开放平台 API 索引
 
+> **已归档（v0.6.0 起）**：本文是旧版人工整理，其中的 MCP / API 数量与映射口径已过时，请勿作为事实依据。当前口径（50 MCP / 411 tool / 376 API）以 [index.json](../index.json) 为唯一真相源；人读入口见 [getting-started.md](getting-started.md)，映射复核见 [api-mapping-review.md](api-mapping-review.md)。
+
 生成时间：2026-05-29T08:51:13.025Z
 
 - 接口条目：372
